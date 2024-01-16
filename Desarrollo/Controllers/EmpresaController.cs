@@ -48,7 +48,7 @@ namespace Desarrollo.Controllers
             try
             {
 
-                Empresa e = new Empresa { nombre = body.nombre };
+                Empresa e = new Empresa { Nombre = body.nombre };
                 _context.Empresa.Add(e);
                 var result = await _context.SaveChangesAsync();
                 return Ok(new {success=true, message="Created", data=body});
@@ -87,8 +87,8 @@ namespace Desarrollo.Controllers
         {
             try
             {
-                if(!EmpresaExist(empresa.id)){
-                    return NotFound(new {success=false, message=$"Empresa con id: {empresa.id}, NOT FOUND"});
+                if(!EmpresaExist(empresa.Id)){
+                    return NotFound(new {success=false, message=$"Empresa con id: {empresa.Id}, NOT FOUND"});
                 }
                  
                 _context.Empresa.Entry(empresa).State=EntityState.Modified;
@@ -101,11 +101,36 @@ namespace Desarrollo.Controllers
                 return BadRequest(new {success=false, message="ERROR", data=ex});
             }
         }
+
+        [HttpGet]
+        [Route("empresa-con-empleados/{id}")]
+        public async Task<ActionResult> GetEmpresaConEmpleadosById([FromRoute] int id)
+        {
+            try
+            {
+               /*var result=await _context.Empresa.Where(empresa=>empresa.Id==id).Join(_context.Empleado,empresa=>empresa.Id,empleado=>empleado.EmpresaId,(empresa, empleado)=>new{
+                    Empresa=empresa,
+                    Empleados=empleado
+                }).ToListAsync();*/
+
+                var result=await _context.Empresa.Where(e=>e.Id==id).Select(empresa=>new{
+                    Empresa=empresa,
+                    Empleados=_context.Empleado.Where(empleado=>empleado.EmpresaId==empresa.Id).ToList()
+                }).FirstOrDefaultAsync();
+
+                return Ok(new{success=true, message="SUCCESS", data=result});
+            }
+            catch (System.Exception ex)
+            {
+                
+                return BadRequest(new{success=false, message="ERROR", data=ex});
+            }
+        }
         #endregion
         #region Private Methods
         private bool EmpresaExist(int id)
         {
-            bool result=_context.Empresa.Any(e=>e.id==id);
+            bool result=_context.Empresa.Any(e=>e.Id==id);
             return result;
         }
         #endregion

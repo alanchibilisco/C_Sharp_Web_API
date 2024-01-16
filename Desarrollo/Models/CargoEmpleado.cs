@@ -7,8 +7,8 @@ namespace Desarrollo.Models
 {
     public class CargoEmpleado
     {
-        public int id { get; set; }
-        public int empleadoId { get; set; }
-        public int cardoId { get; set; }
+        public int Id { get; set; }
+        public int EmpleadoId { get; set; }
+        public int CargoId { get; set; }
     }
 }

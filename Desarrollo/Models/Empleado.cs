@@ -7,9 +7,10 @@ namespace Desarrollo.Models
 {
     public class Empleado
     {
-        public int id { get; set; }
-        public string nombre { get; set; }=string.Empty;
-        public string apellido { get; set; }=string.Empty;
-        public int empresaId { get; set; }
+        public int Id { get; set; }
+        public string Nombre { get; set; }=string.Empty;
+        public string Apellido { get; set; }=string.Empty;
+
+        public int EmpresaId{get;set;}
     }
 }
