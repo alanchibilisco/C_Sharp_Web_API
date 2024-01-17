@@ -15,5 +15,6 @@ namespace Desarrollo.Data
         public DbSet<Empleado> Empleado { get; set; }
         public DbSet<Cargo> Cargo { get; set; }
         public DbSet<CargoEmpleado> CargoEmpleado { get; set; }
+        public DbSet<Cliente> Cliente{get;set;}
     }
 }

@@ -31,3 +31,11 @@ public class PostCargoDto
 {
     public string Nombre_Cargo { get; set; }=string.Empty;
 }
+
+
+public class PostClienteDto2
+{
+    public string Nombre { get; set; }=string.Empty;
+    public string Email{get;set;}=string.Empty;
+    public int EmpresaId{get;set;}
+}

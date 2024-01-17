@@ -1,5 +1,8 @@
-﻿using Desarrollo.Dto;
+﻿using System.Configuration;
+using Desarrollo.Data;
+using Desarrollo.Dto;
 using Desarrollo.Models;
+using Desarrollo.Repository;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -8,16 +11,35 @@ namespace Desarrollo.Controllers;
 [Route("/api/[controller]")]
 public class ClienteController:ControllerBase
 {
-    [HttpGet]
+    //private  Context context;
+    private ClienteRepository repository;
+
+    public ClienteController(Context context)
+    {
+        this.repository=new ClienteRepository(context);
+
+    }
+
+    [HttpPost]
+    [Route("create")]
+    public async Task<ActionResult> CreateNewCliente([FromBody]PostClienteDto2 body)
+    {
+        try
+        {
+            Cliente response=await repository.CreateNewCliente(body);
+            return Ok(ResponseMessage.SuccessResponse(response));
+        }
+        catch (System.Exception ex)
+        {
+            System.Console.WriteLine("Error--> {0}",ex);
+            return BadRequest(ResponseMessage.ErrorResponse("Error inesperado"));
+        }
+    }
+    /*[HttpGet]
     [Route("listar")]
     public dynamic ListarClientes()
     {
-        //desarrollar codigo;
-        //respuesta
-        /*return new {
-            nombre="Test",
-            edad=35
-        };*/
+        
         List<Cliente> response=new List<Cliente>();
 
         Cliente c1=new Cliente{Id=1, Edad=35, Email="alan.chibilisco@gmail.com", Nombre="Alan"};
@@ -36,10 +58,7 @@ public class ClienteController:ControllerBase
 
         Cliente c=new Cliente{Id=new Random().Next(10), Edad=int.Parse(body.edad), Email=body.email, Nombre=body.nombre};
 
-        /*return new {
-            nombre="Cliente",
-            edad=32
-        };*/
+        
 
         return new {
             success=true,
@@ -87,7 +106,7 @@ public class ClienteController:ControllerBase
             message="ok",
             data=token
         };
-    }
+    }*/
 
 
 }
