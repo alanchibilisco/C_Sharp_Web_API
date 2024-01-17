@@ -145,8 +145,10 @@ namespace Desarrollo.Controllers
                     Empresa = empresa,
                     Empleados = _context.Empleado.Where(empleado => empleado.EmpresaId == empresa.Id).Select(empleado => new
                     {
-                        Empleado = empleado,
-                        Cargo = _context.CargoEmpleado
+                        //Empleado = empleado,
+                        nombre=empleado.Nombre,
+                        apellido=empleado.Apellido,
+                        cargo=_context.CargoEmpleado
                         .Where(cargoempleado => cargoempleado.EmpleadoId == empleado.Id)
                         .Select(cargoempleado => _context.Cargo
                             .Where(cargo => cargo.Id == cargoempleado.CargoId)
