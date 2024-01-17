@@ -14,13 +14,18 @@ namespace Desarrollo.Controllers
     [Route("api/[controller]")]
     public class EmpleadoController : ControllerBase
     {
+        #region Fields
         private readonly Context _context;
+        #endregion
 
+        #region Constructor
         public EmpleadoController(Context context)
         {
             _context = context;
         }
+        #endregion
 
+        #region Public Methods
         [HttpPost]
         [Route("create-simple")]
         public async Task<ActionResult> CreateNewEmpleado([FromBody] PostEmpleadoDto body)
@@ -64,12 +69,12 @@ namespace Desarrollo.Controllers
                         resultEmpleado=resEmp,
                         resultCargo=resCargo
                     };
-                    return Ok(new{success=true, message="SUCCESS", data=response});
+                    return Ok(ResponseMessage.SuccessResponse(response));
                 }
                 catch (System.Exception ex)
                 {
-
-                    return BadRequest(new { success = false, message = "ERROR", data = ex });
+                    System.Console.WriteLine("Error--> {0}",ex);
+                    return BadRequest(ResponseMessage.ErrorResponse("Error inesperado"));
                 }
             }
 
@@ -83,23 +88,26 @@ namespace Desarrollo.Controllers
             {
                 if (!EmpleadoExists(id))
                 {
-                    return NotFound(new { success = false, message = $"Empleado with id: {id}, NOT FOUND" });
+                    return NotFound(ResponseMessage.ErrorResponse($"Empleado con id: {id}, NOT FOUND"));
                 }
 
                 Empleado response = await _context.Empleado.FindAsync(id);
-                return Ok(new { success = true, message = "SUCCESS", data = response });
+                return Ok(ResponseMessage.SuccessResponse(response));
             }
             catch (System.Exception ex)
             {
-
-                return BadRequest(new { success = false, message = "Error", data = ex });
+                System.Console.WriteLine("Error--> {0}",ex);
+                return BadRequest(ResponseMessage.ErrorResponse("Error inesperado"));
             }
         }
+        #endregion
 
+        #region Private Methods
         private bool EmpleadoExists(int id)
         {
             bool result = _context.Empleado.Any(e => e.Id == id);
             return result;
         }
+        #endregion
     }
 }

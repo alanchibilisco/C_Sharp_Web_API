@@ -26,3 +26,8 @@ public class PostEmpleadoTDto
     public int EmpresaId { get; set; }
     public int CargoId { get; set; }
 }
+
+public class PostCargoDto
+{
+    public string Nombre_Cargo { get; set; }=string.Empty;
+}

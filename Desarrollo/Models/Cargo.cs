@@ -7,7 +7,7 @@ namespace Desarrollo.Models
 {
     public class Cargo
     {
-      public int id { get; set; }
-      public string nombre_cargo { get; set; }=string.Empty;
+      public int Id { get; set; }
+      public string Nombre_Cargo { get; set; }=string.Empty;
     }
 }
