@@ -1,8 +1,7 @@
 ﻿using Desarrollo.Data;
-using Desarrollo.Dto;
-using Desarrollo.Models;
+using Desarollo.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.VisualBasic;
+
 
 namespace Desarrollo.Controllers;
 [ApiController]
@@ -20,17 +19,17 @@ public class ClienteController:ControllerBase
 
     [HttpGet]
     [Route("get-all")]
-    public async Task<ActionResult> GetAllClientes()
+    public async Task<ActionResult<ResponseMessage>> GetAllClientes()
     {
         try
         {
             var response=await repository.GetClienteList();
-            return Ok(response);
+            return Ok(ResponseMessage.SuccessResponse(response));
         }
         catch (System.Exception ex)
         {
             System.Console.WriteLine("Error--> {0}", ex);
-            return BadRequest("Error inesperado");
+            return BadRequest(ResponseMessage.ErrorResponse("Error inesperado"));
             
         }
     }

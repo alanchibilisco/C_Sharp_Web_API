@@ -10,3 +10,6 @@
 /home/alan/CursoC#/ApiRest/Desarrollo.Data/obj/Debug/net7.0/refint/Desarrollo.Data.dll
 /home/alan/CursoC#/ApiRest/Desarrollo.Data/obj/Debug/net7.0/Desarrollo.Data.pdb
 /home/alan/CursoC#/ApiRest/Desarrollo.Data/obj/Debug/net7.0/ref/Desarrollo.Data.dll
+/home/alan/CursoC#/ApiRest/Desarrollo.Data/bin/Debug/net7.0/Desarollo.Models.dll
+/home/alan/CursoC#/ApiRest/Desarrollo.Data/bin/Debug/net7.0/Desarollo.Models.pdb
+/home/alan/CursoC#/ApiRest/Desarrollo.Data/obj/Debug/net7.0/Desarrollo.Data.csproj.CopyComplete

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using Dapper;
+using Desarollo.Models;
 using Microsoft.Extensions.Configuration;
 using MySql.Data.MySqlClient;
 

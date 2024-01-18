@@ -1,4 +1,4 @@
-﻿namespace Desarrollo.Data;
+﻿namespace Desarollo.Models;
 
 public class Cliente
 {

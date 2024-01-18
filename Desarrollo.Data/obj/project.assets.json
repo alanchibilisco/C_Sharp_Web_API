@@ -603,6 +603,16 @@
         "runtime": {
           "lib/net7.0/ZstdSharp.dll": {}
         }
+      },
+      "Desarollo.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/Desarollo.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Desarollo.Models.dll": {}
+        }
       }
     }
   },
@@ -1937,11 +1947,17 @@
         "zstdsharp.port.0.7.1.nupkg.sha512",
         "zstdsharp.port.nuspec"
       ]
+    },
+    "Desarollo.Models/1.0.0": {
+      "type": "project",
+      "path": "../Desarollo.Models/Desarollo.Models.csproj",
+      "msbuildProject": "../Desarollo.Models/Desarollo.Models.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
       "Dapper >= 2.0.151",
+      "Desarollo.Models >= 1.0.0",
       "Microsoft.Extensions.Configuration >= 7.0.0",
       "MySql.Data >= 8.1.0"
     ]
@@ -1970,7 +1986,11 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/home/alan/CursoC#/ApiRest/Desarollo.Models/Desarollo.Models.csproj": {
+              "projectPath": "/home/alan/CursoC#/ApiRest/Desarollo.Models/Desarollo.Models.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

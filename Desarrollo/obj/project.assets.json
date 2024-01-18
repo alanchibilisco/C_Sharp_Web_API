@@ -781,11 +781,22 @@
           "lib/net7.0/ZstdSharp.dll": {}
         }
       },
+      "Desarollo.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/Desarollo.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Desarollo.Models.dll": {}
+        }
+      },
       "Desarrollo.Data/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
           "Dapper": "2.0.151",
+          "Desarollo.Models": "1.0.0",
           "Microsoft.Extensions.Configuration": "7.0.0",
           "MySql.Data": "8.1.0"
         },
@@ -2624,6 +2635,11 @@
         "zstdsharp.port.nuspec"
       ]
     },
+    "Desarollo.Models/1.0.0": {
+      "type": "project",
+      "path": "../Desarollo.Models/Desarollo.Models.csproj",
+      "msbuildProject": "../Desarollo.Models/Desarollo.Models.csproj"
+    },
     "Desarrollo.Data/1.0.0": {
       "type": "project",
       "path": "../Desarrollo.Data/Desarrollo.Data.csproj",
@@ -2633,6 +2649,7 @@
   "projectFileDependencyGroups": {
     "net7.0": [
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 12.0.1",
+      "Desarollo.Models >= 1.0.0",
       "Desarrollo.Data >= 1.0.0",
       "Microsoft.AspNetCore.OpenApi >= 7.0.15",
       "Swashbuckle.AspNetCore >= 6.5.0"
@@ -2663,6 +2680,9 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
+            "/home/alan/CursoC#/ApiRest/Desarollo.Models/Desarollo.Models.csproj": {
+              "projectPath": "/home/alan/CursoC#/ApiRest/Desarollo.Models/Desarollo.Models.csproj"
+            },
             "/home/alan/CursoC#/ApiRest/Desarrollo.Data/Desarrollo.Data.csproj": {
               "projectPath": "/home/alan/CursoC#/ApiRest/Desarrollo.Data/Desarrollo.Data.csproj"
             }

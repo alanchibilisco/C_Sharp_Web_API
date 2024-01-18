@@ -1,0 +1,11 @@
+/home/alan/CursoC#/ApiRest/Desarollo.Models/bin/Debug/net7.0/Desarollo.Models.deps.json
+/home/alan/CursoC#/ApiRest/Desarollo.Models/bin/Debug/net7.0/Desarollo.Models.dll
+/home/alan/CursoC#/ApiRest/Desarollo.Models/bin/Debug/net7.0/Desarollo.Models.pdb
+/home/alan/CursoC#/ApiRest/Desarollo.Models/obj/Debug/net7.0/Desarollo.Models.GeneratedMSBuildEditorConfig.editorconfig
+/home/alan/CursoC#/ApiRest/Desarollo.Models/obj/Debug/net7.0/Desarollo.Models.AssemblyInfoInputs.cache
+/home/alan/CursoC#/ApiRest/Desarollo.Models/obj/Debug/net7.0/Desarollo.Models.AssemblyInfo.cs
+/home/alan/CursoC#/ApiRest/Desarollo.Models/obj/Debug/net7.0/Desarollo.Models.csproj.CoreCompileInputs.cache
+/home/alan/CursoC#/ApiRest/Desarollo.Models/obj/Debug/net7.0/Desarollo.Models.dll
+/home/alan/CursoC#/ApiRest/Desarollo.Models/obj/Debug/net7.0/refint/Desarollo.Models.dll
+/home/alan/CursoC#/ApiRest/Desarollo.Models/obj/Debug/net7.0/Desarollo.Models.pdb
+/home/alan/CursoC#/ApiRest/Desarollo.Models/obj/Debug/net7.0/ref/Desarollo.Models.dll
