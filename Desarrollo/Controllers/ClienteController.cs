@@ -38,4 +38,36 @@ public class ClienteController:ControllerBase
             
         }
     }
+
+    [HttpPost]
+    [Route("new")]
+    public async Task<ActionResult> NewCliente([FromBody]PostClienteDto2 body)
+    {
+        try
+        {
+            Cliente response=await service.NewCliente(body);
+            return Ok(ResponseMessage.SuccessResponse(response));
+        }
+        catch (System.Exception ex)
+        {
+            System.Console.WriteLine("Error--> {0}", ex);
+            return BadRequest(ResponseMessage.ErrorResponse("Error inesperado"));
+        }
+    }
+
+    [HttpPost]
+    [Route("get-cliente")]
+    public async Task<ActionResult> GetClienteByEmail([FromBody]string email)
+    {
+        try
+        {
+            Cliente response=await service.GetClienteByEmail(email);
+            return Ok(ResponseMessage.SuccessResponse(response));
+        }
+        catch (System.Exception ex)
+        {
+            System.Console.WriteLine("Error--> {0}",ex);
+            return BadRequest(ResponseMessage.ErrorResponse("Error inesperado"));
+        }
+    }
 }
