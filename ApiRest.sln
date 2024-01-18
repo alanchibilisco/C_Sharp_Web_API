@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Desarrollo.Data", "Desarrol
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Desarollo.Models", "Desarollo.Models\Desarollo.Models.csproj", "{F69726DD-CEB8-415D-8108-EE6E5E147DF8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Desarrollo.Services", "Desarrollo.Services\Desarrollo.Services.csproj", "{8E986D1D-A178-4C57-A144-677D3A66C46A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{F69726DD-CEB8-415D-8108-EE6E5E147DF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F69726DD-CEB8-415D-8108-EE6E5E147DF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F69726DD-CEB8-415D-8108-EE6E5E147DF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E986D1D-A178-4C57-A144-677D3A66C46A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E986D1D-A178-4C57-A144-677D3A66C46A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E986D1D-A178-4C57-A144-677D3A66C46A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E986D1D-A178-4C57-A144-677D3A66C46A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

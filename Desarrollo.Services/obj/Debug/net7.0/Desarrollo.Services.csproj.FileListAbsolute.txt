@@ -1,0 +1,17 @@
+/home/alan/CursoC#/ApiRest/Desarrollo.Services/bin/Debug/net7.0/Desarrollo.Services.deps.json
+/home/alan/CursoC#/ApiRest/Desarrollo.Services/bin/Debug/net7.0/Desarrollo.Services.dll
+/home/alan/CursoC#/ApiRest/Desarrollo.Services/bin/Debug/net7.0/Desarrollo.Services.pdb
+/home/alan/CursoC#/ApiRest/Desarrollo.Services/bin/Debug/net7.0/Desarollo.Models.dll
+/home/alan/CursoC#/ApiRest/Desarrollo.Services/bin/Debug/net7.0/Desarrollo.Data.dll
+/home/alan/CursoC#/ApiRest/Desarrollo.Services/bin/Debug/net7.0/Desarrollo.Data.pdb
+/home/alan/CursoC#/ApiRest/Desarrollo.Services/bin/Debug/net7.0/Desarollo.Models.pdb
+/home/alan/CursoC#/ApiRest/Desarrollo.Services/obj/Debug/net7.0/Desarrollo.Services.csproj.AssemblyReference.cache
+/home/alan/CursoC#/ApiRest/Desarrollo.Services/obj/Debug/net7.0/Desarrollo.Services.GeneratedMSBuildEditorConfig.editorconfig
+/home/alan/CursoC#/ApiRest/Desarrollo.Services/obj/Debug/net7.0/Desarrollo.Services.AssemblyInfoInputs.cache
+/home/alan/CursoC#/ApiRest/Desarrollo.Services/obj/Debug/net7.0/Desarrollo.Services.AssemblyInfo.cs
+/home/alan/CursoC#/ApiRest/Desarrollo.Services/obj/Debug/net7.0/Desarrollo.Services.csproj.CoreCompileInputs.cache
+/home/alan/CursoC#/ApiRest/Desarrollo.Services/obj/Debug/net7.0/Desarrollo.Services.csproj.CopyComplete
+/home/alan/CursoC#/ApiRest/Desarrollo.Services/obj/Debug/net7.0/Desarrollo.Services.dll
+/home/alan/CursoC#/ApiRest/Desarrollo.Services/obj/Debug/net7.0/refint/Desarrollo.Services.dll
+/home/alan/CursoC#/ApiRest/Desarrollo.Services/obj/Debug/net7.0/Desarrollo.Services.pdb
+/home/alan/CursoC#/ApiRest/Desarrollo.Services/obj/Debug/net7.0/ref/Desarrollo.Services.dll

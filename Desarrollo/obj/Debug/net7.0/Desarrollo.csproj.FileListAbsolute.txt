@@ -61,3 +61,5 @@
 /home/alan/CursoC#/ApiRest/Desarrollo/bin/Debug/net7.0/Desarrollo.Data.pdb
 /home/alan/CursoC#/ApiRest/Desarrollo/bin/Debug/net7.0/Desarollo.Models.dll
 /home/alan/CursoC#/ApiRest/Desarrollo/bin/Debug/net7.0/Desarollo.Models.pdb
+/home/alan/CursoC#/ApiRest/Desarrollo/bin/Debug/net7.0/Desarrollo.Services.dll
+/home/alan/CursoC#/ApiRest/Desarrollo/bin/Debug/net7.0/Desarrollo.Services.pdb
