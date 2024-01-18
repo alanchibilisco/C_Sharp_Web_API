@@ -1,0 +1,12 @@
+/home/alan/CursoC#/ApiRest/Desarrollo.Data/bin/Debug/net7.0/Desarrollo.Data.deps.json
+/home/alan/CursoC#/ApiRest/Desarrollo.Data/bin/Debug/net7.0/Desarrollo.Data.dll
+/home/alan/CursoC#/ApiRest/Desarrollo.Data/bin/Debug/net7.0/Desarrollo.Data.pdb
+/home/alan/CursoC#/ApiRest/Desarrollo.Data/obj/Debug/net7.0/Desarrollo.Data.csproj.AssemblyReference.cache
+/home/alan/CursoC#/ApiRest/Desarrollo.Data/obj/Debug/net7.0/Desarrollo.Data.GeneratedMSBuildEditorConfig.editorconfig
+/home/alan/CursoC#/ApiRest/Desarrollo.Data/obj/Debug/net7.0/Desarrollo.Data.AssemblyInfoInputs.cache
+/home/alan/CursoC#/ApiRest/Desarrollo.Data/obj/Debug/net7.0/Desarrollo.Data.AssemblyInfo.cs
+/home/alan/CursoC#/ApiRest/Desarrollo.Data/obj/Debug/net7.0/Desarrollo.Data.csproj.CoreCompileInputs.cache
+/home/alan/CursoC#/ApiRest/Desarrollo.Data/obj/Debug/net7.0/Desarrollo.Data.dll
+/home/alan/CursoC#/ApiRest/Desarrollo.Data/obj/Debug/net7.0/refint/Desarrollo.Data.dll
+/home/alan/CursoC#/ApiRest/Desarrollo.Data/obj/Debug/net7.0/Desarrollo.Data.pdb
+/home/alan/CursoC#/ApiRest/Desarrollo.Data/obj/Debug/net7.0/ref/Desarrollo.Data.dll

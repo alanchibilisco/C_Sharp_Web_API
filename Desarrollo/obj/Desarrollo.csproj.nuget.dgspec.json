@@ -4,14 +4,14 @@
     "/home/alan/CursoC#/ApiRest/Desarrollo/Desarrollo.csproj": {}
   },
   "projects": {
-    "/home/alan/CursoC#/ApiRest/Desarrollo/Desarrollo.csproj": {
+    "/home/alan/CursoC#/ApiRest/Desarrollo.Data/Desarrollo.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/alan/CursoC#/ApiRest/Desarrollo/Desarrollo.csproj",
-        "projectName": "Desarrollo",
-        "projectPath": "/home/alan/CursoC#/ApiRest/Desarrollo/Desarrollo.csproj",
+        "projectUniqueName": "/home/alan/CursoC#/ApiRest/Desarrollo.Data/Desarrollo.Data.csproj",
+        "projectName": "Desarrollo.Data",
+        "projectPath": "/home/alan/CursoC#/ApiRest/Desarrollo.Data/Desarrollo.Data.csproj",
         "packagesPath": "/home/alan/.nuget/packages/",
-        "outputPath": "/home/alan/CursoC#/ApiRest/Desarrollo/obj/",
+        "outputPath": "/home/alan/CursoC#/ApiRest/Desarrollo.Data/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/alan/.nuget/NuGet/NuGet.Config"
@@ -38,13 +38,84 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
-            "Microsoft.AspNetCore.OpenApi": {
+            "Dapper": {
               "target": "Package",
-              "version": "[7.0.15, )"
+              "version": "[2.0.151, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[7.0.0, )"
             },
             "MySql.Data": {
               "target": "Package",
               "version": "[8.1.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/7.0.405/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/alan/CursoC#/ApiRest/Desarrollo/Desarrollo.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/alan/CursoC#/ApiRest/Desarrollo/Desarrollo.csproj",
+        "projectName": "Desarrollo",
+        "projectPath": "/home/alan/CursoC#/ApiRest/Desarrollo/Desarrollo.csproj",
+        "packagesPath": "/home/alan/.nuget/packages/",
+        "outputPath": "/home/alan/CursoC#/ApiRest/Desarrollo/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/alan/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "/home/alan/CursoC#/ApiRest/Desarrollo.Data/Desarrollo.Data.csproj": {
+                "projectPath": "/home/alan/CursoC#/ApiRest/Desarrollo.Data/Desarrollo.Data.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "Microsoft.AspNetCore.OpenApi": {
+              "target": "Package",
+              "version": "[7.0.15, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
