@@ -38,7 +38,7 @@ public class ClienteRepository
         }
     }
 
-    public async Task<Cliente> NewCliente(PostClienteDto2 body)
+    public async Task NewCliente(PostClienteDto2 body)
     {
         try
         {
@@ -47,9 +47,9 @@ public class ClienteRepository
             using var connection = new MySqlConnection(_configuration.GetConnectionString("DefaultConnection"));
             var result = await connection.ExecuteAsync(sql, c);
             System.Console.WriteLine("Resultado del insert --> {0}",result);
-            string sql2 = $"Select * FROM Cliente WHERE email = @email";
+            /*string sql2 = $"Select * FROM Cliente WHERE email = @email";
             var response = await connection.QuerySingleAsync<Cliente>(sql2, new{c.Email});
-            return response;
+            return response;*/
 
         }
         catch (System.Exception)
@@ -73,6 +73,6 @@ public class ClienteRepository
 
             throw;
         }
-    }
+    }    
     #endregion
 }

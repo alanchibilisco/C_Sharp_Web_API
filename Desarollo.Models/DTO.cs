@@ -39,3 +39,11 @@ public class PostClienteDto2
     public string Email { get; set; } = string.Empty;
     public int EmpresaId { get; set; }
 }
+
+
+public class EmpresaClientesDTO
+{
+    public int id {get;set;}
+    public string nombre {get;set;}=string.Empty;
+    public List<Cliente> clientes {get;set;}
+}

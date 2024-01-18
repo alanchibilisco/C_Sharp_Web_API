@@ -35,7 +35,8 @@ public class ClienteServices
     {
         try
         {
-            Cliente response=await repository.NewCliente(body);
+            await repository.NewCliente(body);
+            Cliente response=await repository.GetClienteByEmail(body.Email);
             return response;
         }
         catch (System.Exception)
