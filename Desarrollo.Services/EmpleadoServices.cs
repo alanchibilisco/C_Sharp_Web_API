@@ -34,6 +34,19 @@ namespace Desarrollo.Services
                 throw;
             }
         }
+
+        public async Task CreateEmpleado(PostEmpleadoTDto body)
+        {
+            try
+            {
+                await repository.CreateEmpleado(body);                
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+        }
         #endregion
     }
 }

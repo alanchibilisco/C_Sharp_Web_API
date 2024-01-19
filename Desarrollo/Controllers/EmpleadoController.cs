@@ -39,6 +39,22 @@ namespace Desarrollo.Controllers
                 
             }
         }
+
+        [HttpPost]
+        [Route("create")]
+        public async Task<ActionResult> CreateNewEmpleado([FromBody]PostEmpleadoTDto body)
+        {
+            try
+            {
+                await service.CreateEmpleado(body);
+                return Ok(ResponseMessage.SuccessResponse());
+            }
+            catch (System.Exception ex)
+            {
+                System.Console.WriteLine("Error--> {0}",ex);
+                return BadRequest(ResponseMessage.ErrorResponse("Error inesperado"));
+            }
+        }
         #endregion
     }
 }
