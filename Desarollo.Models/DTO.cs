@@ -43,7 +43,14 @@ public class PostClienteDto2
 
 public class EmpresaClientesDTO
 {
-    public int id {get;set;}
-    public string nombre {get;set;}=string.Empty;
-    public List<Cliente> clientes {get;set;}
+    public int Id {get;set;}
+    public string Nombre {get;set;}=string.Empty;
+    public List<Cliente> Clientes {get;set;}
+}
+
+public class EmpesaEmpleadosDTO
+{
+    public int Id { get; set; }
+    public string Nombre { get; set; }=string.Empty;
+    public List<Empleado> Empleados{get;set;}
 }

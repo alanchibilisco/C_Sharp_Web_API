@@ -7,8 +7,6 @@ using Dapper;
 using MySql.Data.MySqlClient;
 using Desarollo.Models;
 using System.Collections;
-using System.Linq;
-using System.Net.Http.Headers;
 
 namespace Desarrollo.Data
 {
@@ -16,55 +14,44 @@ namespace Desarrollo.Data
     {
         #region Fields
         private readonly IConfiguration _configuration;
+        private readonly string _DDBB;
         #endregion
         #region Constructor
         public EmpresaRepository(IConfiguration configuration)
         {
             _configuration = configuration;
+            _DDBB=_configuration.GetConnectionString("DefaultConnection")!;
         }
         #endregion
 
         #region Public Methods
-        public async Task<IEnumerable
-        > GetEmpresasConClientes()
+        public async Task<IEnumerable> GetEmpresasConClientes()
         {
             try
             {
                 string query = @"SELECT * FROM Empresa e LEFT JOIN Cliente c on e.id = c.empresaId ORDER BY e.id, c.id;";
-                using var connection = new MySqlConnection(_configuration.GetConnectionString("DefaultConnection"));
-                //var response = await connection.QueryAsync(query);
-                var empresaConClientes= new Dictionary<int, Empresa>();
-                var response=await connection.QueryAsync<Empresa,Cliente,Empresa>(query,(empresa,cliente)=>{
-                    if (empresaConClientes.TryGetValue(empresa.Id, out var empresaActual))
-                    {
-                        empresaActual=empresa;
-                        empresaActual.clientes=new List<Cliente>();
-                        empresaConClientes.Add(empresa.Id, empresaActual);
-                    }
-                    if(cliente!=null){
-                        empresaActual.clientes.Add(cliente);
-                    }
-                   //empresa.clientes??=new List<Cliente>();
-                   //System.Console.WriteLine("Cliente--> {0}-{1}-{2}",cliente.Id, cliente.Email, cliente.Nombre);
-                   //System.Console.WriteLine("empresa--> {0}-{1}-{2}",empresa.Id, cliente.Email, cliente.EmpresaId);
-                   //empresa.clientes.Add(cliente);
-                   return empresaActual;
-                }, splitOn:"id");
-                /*var empresaConClientes= new Dictionary<int, Empresa>();
-                var response= await connection.QueryAsync<Empresa, Cliente, Empresa>(query,(empresa, cliente)=>{
+                using MySqlConnection connection = new MySqlConnection(_DDBB);
+                
+                Dictionary<int,EmpresaClientesDTO> empresaConClientes = new Dictionary<int, EmpresaClientesDTO>();
+
+                await connection.QueryAsync<EmpresaClientesDTO, Cliente, EmpresaClientesDTO>(query, (empresa, cliente) =>
+                {
                     if (!empresaConClientes.TryGetValue(empresa.Id, out var empresaActual))
                     {
-                        empresaActual=empresa;
-                        empresaActual.clientes=new List<Cliente>();
+                        empresaActual = empresa;
+                        empresaActual.Clientes = new List<Cliente>();
                         empresaConClientes.Add(empresa.Id, empresaActual);
                     }
-                    if (cliente!=null)
+                    if (cliente != null)
                     {
-                    empresaActual.clientes.Add(cliente);    
+                        empresaActual.Clientes.Add(cliente);
                     }
-                    
+
                     return empresaActual;
-                }, splitOn:"clienteId");*/
+                }, splitOn: "id");
+              
+                List<EmpresaClientesDTO> response = empresaConClientes.Values.ToList();
+                //return response;
                 return response;
             }
             catch (System.Exception)
