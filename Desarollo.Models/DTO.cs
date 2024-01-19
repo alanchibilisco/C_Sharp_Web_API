@@ -54,3 +54,13 @@ public class EmpesaEmpleadosDTO
     public string Nombre { get; set; }=string.Empty;
     public List<Empleado> Empleados{get;set;}
 }
+
+
+public class EmpleadosDTO
+{
+    public int Id { get; set; }
+    public string Nombre { get; set; }=string.Empty;
+    public string Apellido { get; set; }=string.Empty;
+    public string Empresa { get; set; }=string.Empty;
+    public string Cargo { get; set; }=string.Empty;
+}
