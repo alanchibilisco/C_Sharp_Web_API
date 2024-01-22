@@ -48,7 +48,7 @@ public class EmpresaClientesDTO
     public List<Cliente> Clientes {get;set;}
 }
 
-public class EmpesaEmpleadosDTO
+public class EmpresaEmpleadosDTO
 {
     public int Id { get; set; }
     public string Nombre { get; set; }=string.Empty;
@@ -63,4 +63,30 @@ public class EmpleadosDTO
     public string Apellido { get; set; }=string.Empty;
     public string Empresa { get; set; }=string.Empty;
     public string Cargo { get; set; }=string.Empty;
+}
+
+public class EmpresaEmpleadoQueryResponse
+{
+    public int id { get; set; }
+    public string nombre { get; set; }=string.Empty;
+    public int empleadoId { get; set; }
+    public string empleadoNombre { get; set; }=string.Empty;
+    public string empleadoApellido { get; set; }=string.Empty;
+    public string empleadoCargo { get; set; }=string.Empty;
+}
+
+public class EmpleadoItem
+{
+    public int empleadoId { get; set; }
+    public string empleadoNombre { get; set; }=string.Empty;
+    public string empleadoApellido { get; set; }=string.Empty;
+    public string empleadoCargo { get; set; }=string.Empty;
+
+}
+
+public class EmpresaEmpleadoListResponse
+{
+    public int id { get; set; }
+    public string nombre { get; set; }=string.Empty;
+    public List<EmpleadoItem>? Empleados { get; set; }
 }

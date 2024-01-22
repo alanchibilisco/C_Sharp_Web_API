@@ -34,5 +34,21 @@ namespace Desarrollo.Controllers
                 return BadRequest(ResponseMessage.ErrorResponse("Error inesperado"));
             }
         }
+
+        [HttpGet]
+        [Route("get-all-with-empleados")]
+        public async Task<ActionResult> GetEmpresaConEmpleados()
+        {
+            try
+            {
+                List</*EmpresaEmpleadosDTO*/EmpresaEmpleadoListResponse> response=await service.GetEmpresaConEmpleados();
+                return Ok(ResponseMessage.SuccessResponse(response));
+            }
+            catch (System.Exception ex)
+            {
+                System.Console.WriteLine("Error--> {0}",ex);
+                return BadRequest(ResponseMessage.ErrorResponse("Error inesperado"));
+            }
+        }
     }
 }
