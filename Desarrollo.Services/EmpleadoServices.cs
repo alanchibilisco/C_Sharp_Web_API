@@ -35,11 +35,13 @@ namespace Desarrollo.Services
             }
         }
 
-        public async Task CreateEmpleado(PostEmpleadoTDto body)
+        public async Task<EmpleadosDTO> CreateEmpleado(PostEmpleadoTDto body)
         {
             try
             {
-                await repository.CreateEmpleado(body);                
+                int id=await repository.CreateEmpleado(body);
+                EmpleadosDTO response=await repository.GetEmpleadoById(id);
+                return response;
             }
             catch (System.Exception)
             {

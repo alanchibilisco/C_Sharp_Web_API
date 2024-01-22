@@ -50,7 +50,7 @@ namespace Desarrollo.Data
             }
         }
 
-        public async Task CreateEmpleado(PostEmpleadoTDto body)
+        public async Task<int> CreateEmpleado(PostEmpleadoTDto body)
         {
             using (MySqlConnection connection = new MySqlConnection(_DDBB))
             {
@@ -67,6 +67,7 @@ namespace Desarrollo.Data
                         var result=await connection.ExecuteAsync(querCargoEmpleado,ce,transaction);
 
                         transaction.Commit();
+                        return empleadoId;
                     }
                     catch (System.Exception)
                     {

@@ -46,8 +46,8 @@ namespace Desarrollo.Controllers
         {
             try
             {
-                await service.CreateEmpleado(body);
-                return Ok(ResponseMessage.SuccessResponse());
+                EmpleadosDTO response=await service.CreateEmpleado(body);
+                return Ok(ResponseMessage.SuccessResponse(response));
             }
             catch (System.Exception ex)
             {

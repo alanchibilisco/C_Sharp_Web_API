@@ -6,10 +6,6 @@ builder.Services.AddControllers();//agregar esto para que tome los controladores
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var c=builder.Configuration;
-
-string db=c["DATABASE_CONNECTION_STRING"];
-System.Console.WriteLine("CONNECTION--> {0}",db);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
