@@ -55,6 +55,23 @@ namespace Desarrollo.Controllers
                 return BadRequest(ResponseMessage.ErrorResponse("Error inesperado"));
             }
         }
+
+        [HttpGet]
+        [Route("get/{id}")]
+        public async Task<ActionResult> GetEmpleadoById([FromRoute] int id)
+        {
+            try
+            {
+                EmpleadosDTO response=await service.GetEmpleadoById(id);
+                return Ok(ResponseMessage.SuccessResponse(response));
+
+            }
+            catch (System.Exception ex)
+            {
+                System.Console.WriteLine("Error--> {0}",ex);                
+                return BadRequest(ResponseMessage.ErrorResponse("Error inesperado"));
+            }
+        }
         #endregion
     }
 }

@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Threading.Tasks;
 using Dapper;
 using Desarollo.Models;
 using Microsoft.Extensions.Configuration;
 using MySql.Data.MySqlClient;
-using Org.BouncyCastle.Crypto.Operators;
+
 
 namespace Desarrollo.Data
 {
@@ -15,12 +16,15 @@ namespace Desarrollo.Data
         #region Fields
         private readonly IConfiguration _configuration;
         private readonly string _DDBB;
+
+        
         #endregion
         #region Constructor
         public EmpleadoRepository(IConfiguration configuration)
         {
             this._configuration = configuration;
             this._DDBB = this._configuration.GetConnectionString("DefaultConnection")!;
+            
         }
         #endregion
         #region Public Methods
@@ -57,8 +61,7 @@ namespace Desarrollo.Data
                     {
                         Empleado e=new Empleado{Nombre=body.Nombre, Apellido=body.Apellido, EmpresaId=body.EmpresaId};
                         string queryEmp="insert into Empleado (Nombre, Apellido, EmpresaId) values (@Nombre, @Apellido, @EmpresaId); SELECT LAST_INSERT_ID()";
-                        int empleadoId=connection.ExecuteScalar<int>(queryEmp,e,transaction);
-                        
+                        int empleadoId=connection.ExecuteScalar<int>(queryEmp,e,transaction);                        
                         CargoEmpleado ce=new CargoEmpleado{EmpleadoId=empleadoId, CargoId=body.CargoId};
                         string querCargoEmpleado="insert into CargoEmpleado (EmpleadoId, CargoId) values (@EmpleadoId, @CargoId);";
                         var result=await connection.ExecuteAsync(querCargoEmpleado,ce,transaction);
@@ -72,6 +75,22 @@ namespace Desarrollo.Data
                     }
                 };
             };
+        }
+
+        public async Task<EmpleadosDTO> GetEmpleadoById(int id)
+        {
+            try
+            {
+                string query=@"SELECT ep.id as Id, ep.nombre as Nombre, ep.apellido as Apellido, es.nombre as Empresa, c.nombre_cargo as Cargo FROM Empleado ep JOIN Empresa es on ep.empresaId = es.id JOIN CargoEmpleado ce on ce.empleadoId = ep.id JOIN Cargo c on c.id = ce.cargoId WHERE ep.id = @id;";
+                using MySqlConnection connection =new  MySqlConnection(_DDBB);
+                EmpleadosDTO response = await connection.QuerySingleAsync<EmpleadosDTO>(query, new {@id});
+                return response;
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
         }
         #endregion
     }

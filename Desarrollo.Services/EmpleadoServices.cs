@@ -47,6 +47,21 @@ namespace Desarrollo.Services
                 throw;
             }
         }
+
+        public async Task<EmpleadosDTO> GetEmpleadoById(int id)
+        {
+            try
+            {
+                EmpleadosDTO response=await repository.GetEmpleadoById(id);
+
+                return response;
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+        }
         #endregion
     }
 }
