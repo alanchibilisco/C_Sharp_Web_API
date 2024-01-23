@@ -7,6 +7,8 @@ using Dapper;
 using MySql.Data.MySqlClient;
 using Desarollo.Models;
 using System.Collections;
+using System.Text.Json;
+
 
 namespace Desarrollo.Data
 {
@@ -20,7 +22,7 @@ namespace Desarrollo.Data
         public EmpresaRepository(IConfiguration configuration)
         {
             _configuration = configuration;
-            _DDBB=_configuration.GetConnectionString("DefaultConnection")!;
+            _DDBB = _configuration.GetConnectionString("DefaultConnection")!;
         }
         #endregion
 
@@ -31,8 +33,8 @@ namespace Desarrollo.Data
             {
                 string query = @"SELECT * FROM Empresa e LEFT JOIN Cliente c on e.id = c.empresaId ORDER BY e.id, c.id;";
                 using MySqlConnection connection = new MySqlConnection(_DDBB);
-                
-                Dictionary<int,EmpresaClientesDTO> empresaConClientes = new Dictionary<int, EmpresaClientesDTO>();
+
+                Dictionary<int, EmpresaClientesDTO> empresaConClientes = new Dictionary<int, EmpresaClientesDTO>();
 
                 await connection.QueryAsync<EmpresaClientesDTO, Cliente, EmpresaClientesDTO>(query, (empresa, cliente) =>
                 {
@@ -49,7 +51,7 @@ namespace Desarrollo.Data
 
                     return empresaActual;
                 }, splitOn: "id");
-              
+
                 List<EmpresaClientesDTO> response = empresaConClientes.Values.ToList();
                 //return response;
                 return response;
@@ -86,46 +88,47 @@ namespace Desarrollo.Data
                 }, splitOn:"id");
                 List<EmpresaEmpleadosDTO> finalResponse=response.Values.ToList();
                 return finalResponse;*/
-                string query ="select e.id, e.nombre, em.id as empleadoId, em.nombre as empleadoNombre, em.apellido as empleadoApellido, c.nombre_cargo as empleadoCargo from Empresa e left join Empleado em on em.empresaId = e.id left join CargoEmpleado ce on ce.empleadoId = em.id left join Cargo c on c.id = ce.cargoId order by e.id;";
+                string query = "select e.id, e.nombre, em.id as empleadoId, em.nombre as empleadoNombre, em.apellido as empleadoApellido, c.nombre_cargo as empleadoCargo from Empresa e left join Empleado em on em.empresaId = e.id left join CargoEmpleado ce on ce.empleadoId = em.id left join Cargo c on c.id = ce.cargoId order by e.id;";
 
-                using MySqlConnection connection=new MySqlConnection(_DDBB);
+                using MySqlConnection connection = new MySqlConnection(_DDBB);
 
-                IEnumerable<EmpresaEmpleadoQueryResponse> response=await connection.QueryAsync<EmpresaEmpleadoQueryResponse>(query);
+                IEnumerable<EmpresaEmpleadoQueryResponse> response = await connection.QueryAsync<EmpresaEmpleadoQueryResponse>(query);
 
-                Dictionary<int,EmpresaEmpleadoListResponse> dic=new Dictionary<int, EmpresaEmpleadoListResponse>();
+                Dictionary<int, EmpresaEmpleadoListResponse> dic = new Dictionary<int, EmpresaEmpleadoListResponse>();
 
                 foreach (EmpresaEmpleadoQueryResponse item in response)
                 {
+
                     if (dic.TryGetValue(item.id, out EmpresaEmpleadoListResponse value))
                     {
-                        if (item.empleadoId!=null)
+                        if (item.empleadoId != 0)
                         {
-                            value.Empleados.Add(new EmpleadoItem{empleadoId=item.empleadoId, empleadoNombre=item.empleadoNombre, empleadoApellido=item.empleadoApellido, empleadoCargo=item.empleadoCargo});
+                            value.Empleados.Add(new EmpleadoItem { empleadoId = item.empleadoId, empleadoNombre = item.empleadoNombre, empleadoApellido = item.empleadoApellido, empleadoCargo = item.empleadoCargo });
                         }
-                        
-                    }else{
-                        List<EmpleadoItem> list=new List<EmpleadoItem>();
-                         EmpresaEmpleadoListResponse eel=new EmpresaEmpleadoListResponse{id=item.id,nombre=item.nombre};
-                        
-                        if (item.empleadoId!=null)
+
+                    }
+                    else
+                    {
+                        List<EmpleadoItem> list = new List<EmpleadoItem>();
+                        EmpresaEmpleadoListResponse eel = new EmpresaEmpleadoListResponse { id = item.id, nombre = item.nombre, Empleados = list };
+
+                        if (item.empleadoId != 0)
                         {
-                            EmpleadoItem ei=new EmpleadoItem{empleadoId=item.empleadoId, empleadoNombre=item.empleadoNombre, empleadoApellido=item.empleadoApellido, empleadoCargo=item.empleadoCargo};
-                             list.Add(ei);
-                            eel.Empleados=list;
-                        }else{
-                            eel.Empleados=null;
-                        }                       
-                       
-                       
+                            EmpleadoItem ei = new EmpleadoItem { empleadoId = item.empleadoId, empleadoNombre = item.empleadoNombre, empleadoApellido = item.empleadoApellido, empleadoCargo = item.empleadoCargo };
+                            list.Add(ei);
+                            eel.Empleados = list;
+                        }
                         dic.Add(item.id, eel);
                     }
                 }
-                List<EmpresaEmpleadoListResponse> FinalResponse=dic.Values.ToList();
+            
+                List<EmpresaEmpleadoListResponse> FinalResponse = dic.Values.ToList();
+                //System.Console.WriteLine($"FinalResponse--> {JsonSerializer.Serialize(FinalResponse)}");
                 return FinalResponse;
             }
             catch (System.Exception)
             {
-                
+
                 throw;
             }
         }
