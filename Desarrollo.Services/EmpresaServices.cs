@@ -45,4 +45,33 @@ public class EmpresaServices
             throw;
         }
     }
+
+    public async Task<Empresa> GetEmpresaById(int id)
+    {
+        try
+        {
+            Empresa response=await repository.GetEmpresabyId(id);
+            return response;
+        }
+        catch (System.Exception)
+        {
+            
+            throw;
+        }
+    }
+
+    public async Task<Empresa> CreateNewEmpresa(PostEmpresaDto body)
+    {
+        try
+        {
+            int newEmpesaId=await repository.CreateNewEmpresa(body);
+            Empresa response=await repository.GetEmpresabyId(newEmpesaId);
+            return response;
+        }
+        catch (System.Exception)
+        {
+            
+            throw;
+        }
+    }
 }

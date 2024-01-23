@@ -132,6 +132,38 @@ namespace Desarrollo.Data
                 throw;
             }
         }
+
+        public async Task<Empresa> GetEmpresabyId(int id)
+        {
+            try
+            {
+                string query=@"select * from Empresa e where e.id=@id;";
+                using MySqlConnection connection=new MySqlConnection(_DDBB);
+                Empresa response=await connection.QueryFirstAsync<Empresa>(query, new{@id});
+                return response;
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+        }
+
+        public async Task<int> CreateNewEmpresa(PostEmpresaDto body)
+        {
+            try
+            {
+                string query=@"insert into Empresa (nombre) values(@nombre); SELECT LAST_INSERT_ID()";
+                using MySqlConnection connection=new MySqlConnection(_DDBB);
+                int newId=await connection.ExecuteScalarAsync<int>(query,new{@nombre=body.nombre});
+                return newId;
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+        }
         #endregion
     }
 }

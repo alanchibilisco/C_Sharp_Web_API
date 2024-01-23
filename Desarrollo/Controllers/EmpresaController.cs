@@ -16,7 +16,7 @@ namespace Desarrollo.Controllers
 
         public EmpresaController(IConfiguration configuration)
         {
-            this.service=new EmpresaServices(configuration);
+            this.service = new EmpresaServices(configuration);
         }
 
         [HttpGet]
@@ -30,7 +30,7 @@ namespace Desarrollo.Controllers
             }
             catch (System.Exception ex)
             {
-                System.Console.WriteLine("Error--> {0}",ex);
+                System.Console.WriteLine("Error--> {0}", ex);
                 return BadRequest(ResponseMessage.ErrorResponse("Error inesperado"));
             }
         }
@@ -41,13 +41,45 @@ namespace Desarrollo.Controllers
         {
             try
             {
-                List</*EmpresaEmpleadosDTO*/EmpresaEmpleadoListResponse> response=await service.GetEmpresaConEmpleados();
+                List</*EmpresaEmpleadosDTO*/EmpresaEmpleadoListResponse> response = await service.GetEmpresaConEmpleados();
+                return Ok(ResponseMessage.SuccessResponse(response));
+            }
+            catch (System.Exception ex)
+            {
+                System.Console.WriteLine("Error--> {0}", ex);
+                return BadRequest(ResponseMessage.ErrorResponse("Error inesperado"));
+            }
+        }
+
+        [HttpGet]
+        [Route("get/{id}")]
+        public async Task<ActionResult<Empresa>> GetEmpresaById([FromRoute] int id)
+        {
+            try
+            {
+                Empresa response=await service.GetEmpresaById(id);
+                return Ok(ResponseMessage.SuccessResponse(response));
+            }
+            catch (System.Exception ex)
+            {
+                System.Console.WriteLine("Error--> {0}", ex);
+                return StatusCode(StatusCodes.Status500InternalServerError, ResponseMessage.ErrorResponse("Error inesperado"));
+            }
+        }
+
+        [HttpPost]
+        [Route("new")]
+        public async Task<ActionResult<Empresa>> CreateNewEmpresa([FromBody]PostEmpresaDto body)
+        {
+            try
+            {
+                Empresa response=await service.CreateNewEmpresa(body);
                 return Ok(ResponseMessage.SuccessResponse(response));
             }
             catch (System.Exception ex)
             {
                 System.Console.WriteLine("Error--> {0}",ex);
-                return BadRequest(ResponseMessage.ErrorResponse("Error inesperado"));
+                return StatusCode(StatusCodes.Status500InternalServerError, ResponseMessage.ErrorResponse("Error inesperado"));
             }
         }
     }
