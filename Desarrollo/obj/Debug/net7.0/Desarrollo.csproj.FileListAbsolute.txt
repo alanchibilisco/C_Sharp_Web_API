@@ -63,3 +63,10 @@
 /home/alan/CursoC#/ApiRest/Desarrollo/bin/Debug/net7.0/Desarollo.Models.pdb
 /home/alan/CursoC#/ApiRest/Desarrollo/bin/Debug/net7.0/Desarrollo.Services.dll
 /home/alan/CursoC#/ApiRest/Desarrollo/bin/Debug/net7.0/Desarrollo.Services.pdb
+/home/alan/CursoC#/ApiRest/Desarrollo/bin/Debug/net7.0/Microsoft.AspNetCore.Cryptography.Internal.dll
+/home/alan/CursoC#/ApiRest/Desarrollo/bin/Debug/net7.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+/home/alan/CursoC#/ApiRest/Desarrollo/bin/Debug/net7.0/Microsoft.IdentityModel.Abstractions.dll
+/home/alan/CursoC#/ApiRest/Desarrollo/bin/Debug/net7.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/home/alan/CursoC#/ApiRest/Desarrollo/bin/Debug/net7.0/Microsoft.IdentityModel.Logging.dll
+/home/alan/CursoC#/ApiRest/Desarrollo/bin/Debug/net7.0/Microsoft.IdentityModel.Tokens.dll
+/home/alan/CursoC#/ApiRest/Desarrollo/bin/Debug/net7.0/System.IdentityModel.Tokens.Jwt.dll

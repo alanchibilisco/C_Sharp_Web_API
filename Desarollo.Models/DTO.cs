@@ -90,3 +90,20 @@ public class EmpresaEmpleadoListResponse
     public string nombre { get; set; }=string.Empty;
     public List<EmpleadoItem>? Empleados { get; set; }
 }
+
+
+public class PostUserDto
+{
+    public string Email { get; set; }=string.Empty;
+    public string Password { get; set; }=string.Empty;
+    public string Role { get; set; }=string.Empty;
+}
+
+
+public class UserResponseDto
+{
+    public int Id { get; set; }
+    public string Email { get; set; }=string.Empty;
+    public string Password { get; set; }=string.Empty;
+    public string role { get; set; }=string.Empty;
+}
