@@ -74,4 +74,18 @@ public class EmpresaServices
             throw;
         }
     }
+
+    public async Task<IEnumerable<Empresa>> GetAll()
+    {
+        try
+        {
+            IEnumerable<Empresa> response=await repository.GetAll();
+            return response;
+        }
+        catch (System.Exception)
+        {
+            
+            throw;
+        }
+    }
 }

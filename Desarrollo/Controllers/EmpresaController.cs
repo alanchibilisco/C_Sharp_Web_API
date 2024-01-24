@@ -82,5 +82,21 @@ namespace Desarrollo.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, ResponseMessage.ErrorResponse("Error inesperado"));
             }
         }
+
+        [HttpGet]
+        [Route("getall")]
+        public async Task<ActionResult> GetAll()
+        {
+            try
+            {
+                IEnumerable<Empresa> response=await service.GetAll();
+                return Ok(ResponseMessage.SuccessResponse(response));
+            }
+            catch (System.Exception ex)
+            {
+                System.Console.WriteLine("Error--> {0}",ex);
+                return StatusCode(StatusCodes.Status500InternalServerError, ResponseMessage.ErrorResponse("Error inesperado"));
+            }
+        }
     }
 }

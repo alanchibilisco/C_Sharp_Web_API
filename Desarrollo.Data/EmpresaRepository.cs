@@ -164,6 +164,23 @@ namespace Desarrollo.Data
                 throw;
             }
         }
+
+        public async Task<IEnumerable<Empresa>> GetAll()
+        {
+            try
+            {
+                string query="select * from Empresa;";
+                using MySqlConnection connection=new MySqlConnection(_DDBB);
+                IEnumerable<Empresa> response=await connection.QueryAsync<Empresa>(query);
+
+                return response;
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+        }
         #endregion
     }
 }
