@@ -52,5 +52,35 @@ namespace Desarrollo.Services
                 throw;
             }
         }
+
+        public async Task<User?> Login(string email, string password)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(email)||string.IsNullOrEmpty(password))
+                {
+                    throw new Exception("Usuario y/o password son requeridos");
+                }
+
+                User? response=await repository.GetUserByEmail(email);
+                
+                if (response==null)
+                {
+                    throw new Exception("Usuario y/o contraseña incorrectos");
+                }
+                
+                if (!Security.ValidateHash(password, Security.GetSalt(), response.Password))
+                {
+                    throw new Exception("Usuario y/o contraseña incorrectos");
+                }
+                
+                return response;
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+        }
     }
 }

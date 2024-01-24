@@ -87,5 +87,21 @@ namespace Desarrollo.Data
                 throw;
             }
         }
+
+        public async Task<User?> GetUserByEmail(string email)
+        {
+            try
+            {
+                using MySqlConnection connection=new MySqlConnection(_DDBB);
+                string query=@"select * from User u where u.email = @email;";
+                User response=await connection.QuerySingleOrDefaultAsync<User>(query,new{@email});
+                return response;
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+        }
     }
 }

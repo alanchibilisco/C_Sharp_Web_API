@@ -47,7 +47,23 @@ namespace Desarrollo.Controllers
             catch (System.Exception ex)
             {
                 System.Console.WriteLine("Error--> {0}",ex);
-                return StatusCode(StatusCodes.Status500InternalServerError, ResponseMessage.ErrorResponse("Error inesperado"));
+                return StatusCode(StatusCodes.Status500InternalServerError, ResponseMessage.ErrorResponse(ex.Message));
+            }
+        }
+
+        [HttpPost]
+        [Route("login")]
+        public async Task<ActionResult> Login([FromBody] PostLoginDto body)
+        {
+            try
+            {
+                User? response= await service.Login(body.Email, body.Password);
+                return Ok(ResponseMessage.SuccessResponse(response));
+            }
+            catch (System.Exception ex)
+            {
+                System.Console.WriteLine("Error--> {0}",ex);
+                return StatusCode(StatusCodes.Status500InternalServerError,ResponseMessage.ErrorResponse(ex.Message));
             }
         }
     }
