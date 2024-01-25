@@ -37,7 +37,7 @@ namespace Desarrollo.Services.helpers
         public static string GenerateJWT(User user)
         {
             List<Claim> claims=new List<Claim>{
-                new Claim(ClaimTypes.Role, user.Role),                
+                new Claim("role", user.Role),                
             };
             JwtSecurityToken token= new JwtSecurityToken(Security.IssuerToken,Security.AudienceToken, claims, expires:DateTime.Now.AddDays(1), signingCredentials:new SigningCredentials(
 				new SymmetricSecurityKey(
