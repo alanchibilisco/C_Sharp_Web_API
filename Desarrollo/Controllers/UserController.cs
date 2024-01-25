@@ -57,7 +57,7 @@ namespace Desarrollo.Controllers
         {
             try
             {
-                User? response= await service.Login(body.Email, body.Password);
+                LoginResponseDto? response= await service.Login(body.Email, body.Password);
                 return Ok(ResponseMessage.SuccessResponse(response));
             }
             catch (System.Exception ex)

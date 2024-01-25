@@ -53,7 +53,7 @@ namespace Desarrollo.Services
             }
         }
 
-        public async Task<User?> Login(string email, string password)
+        public async Task<LoginResponseDto> Login(string email, string password)
         {
             try
             {
@@ -73,8 +73,9 @@ namespace Desarrollo.Services
                 {
                     throw new Exception("Usuario y/o contraseña incorrectos");
                 }
-                
-                return response;
+                string Token=Security.GenerateJWT(response);
+                LoginResponseDto FinalResponse=new LoginResponseDto{Email=response.Email, Token=Token};
+                return FinalResponse;
             }
             catch (System.Exception)
             {
