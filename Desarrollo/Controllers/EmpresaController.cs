@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Desarollo.Models;
 using Desarrollo.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Desarrollo.Controllers
@@ -34,7 +35,7 @@ namespace Desarrollo.Controllers
                 return BadRequest(ResponseMessage.ErrorResponse("Error inesperado"));
             }
         }
-
+        [Authorize(Policy = "IsAdmin")]
         [HttpGet]
         [Route("get-all-with-empleados")]
         public async Task<ActionResult> GetEmpresaConEmpleados()
