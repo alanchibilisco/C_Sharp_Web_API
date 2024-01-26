@@ -57,11 +57,11 @@ public class ClienteController:ControllerBase
 
     [HttpPost]
     [Route("get-cliente")]
-    public async Task<ActionResult> GetClienteByEmail([FromBody]string email)
+    public async Task<ActionResult> GetClienteByEmail([FromBody]GetClienteByEmail body)
     {
         try
         {
-            Cliente response=await service.GetClienteByEmail(email);
+            Cliente response=await service.GetClienteByEmail(body.Email);
             return Ok(ResponseMessage.SuccessResponse(response));
         }
         catch (System.Exception ex)

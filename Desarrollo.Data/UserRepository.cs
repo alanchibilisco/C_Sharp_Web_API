@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Dapper;
 using Desarollo.Models;
 using Microsoft.Extensions.Configuration;
@@ -15,7 +11,8 @@ namespace Desarrollo.Data
 
         public UserRepository(IConfiguration configuration)
         {
-            this._DDBB=configuration.GetConnectionString("DefaultConnection")!;
+            //this._DDBB=configuration.GetConnectionString("DefaultConnection")!;
+            this._DDBB=Database.GetDataBase();
         }
 
         public async Task<IEnumerable<User>> GetAll()
