@@ -22,7 +22,8 @@ namespace Desarrollo.Data
         public EmpresaRepository(IConfiguration configuration)
         {
             _configuration = configuration;
-            _DDBB = _configuration.GetConnectionString("DefaultConnection")!;
+            //_DDBB = _configuration.GetConnectionString("DefaultConnection")!;
+            _DDBB=Database.GetDataBase();
         }
         #endregion
 
