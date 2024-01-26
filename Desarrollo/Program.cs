@@ -1,4 +1,5 @@
 using System.Text;
+using Desarrollo.Services.helpers;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
@@ -8,21 +9,18 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddControllers(/*opt=>{
-    var policy=new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
-    opt.Filters.Add(new AuthorizeFilter(policy));
-}*/);//agregar esto para que tome los controladores desde la carpeta controllers
+builder.Services.AddControllers();//agregar esto para que tome los controladores desde la carpeta controllers
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options=>{
     
     options.TokenValidationParameters=new TokenValidationParameters{
-        ValidateIssuer=false,
-        ValidateAudience=false,
+        ValidateIssuer=true,
+        ValidateAudience=true,
         ValidateLifetime=true,
         ValidateIssuerSigningKey=true,
-        //ValidIssuer="http://localhost:5174",
-        //ValidAudience="ApiRest",
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("SECRET_KEY_TOKEN_TEST_FOR_LEARNING")),
+        ValidIssuer=Security.IssuerToken,
+        ValidAudience=Security.AudienceToken,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Security.SecretKey)),
     };
 });
 builder.Services.AddAuthorization(options=>{
