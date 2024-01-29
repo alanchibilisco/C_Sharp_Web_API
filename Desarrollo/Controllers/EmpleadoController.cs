@@ -72,6 +72,23 @@ namespace Desarrollo.Controllers
                 return BadRequest(ResponseMessage.ErrorResponse("Error inesperado"));
             }
         }
+
+        [HttpGet]
+        [Route("getempleadopornombre")]
+        public async Task<ActionResult> GetEmpleadoByQuery([FromQuery]string? query)
+        {
+            try
+            {
+                
+                IEnumerable<EmpleadosDTO> response=await service.GetEmpleadoByQuery(query);
+                return Ok(ResponseMessage.SuccessResponse(response));
+            }
+            catch (System.Exception ex)
+            {
+                System.Console.WriteLine("Error--> {0}",ex);
+                return StatusCode(StatusCodes.Status500InternalServerError, ResponseMessage.ErrorResponse("Error inesperado"));             
+            }
+        }
         #endregion
     }
 }

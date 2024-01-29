@@ -64,6 +64,20 @@ namespace Desarrollo.Services
                 throw;
             }
         }
+
+        public async Task<IEnumerable<EmpleadosDTO>> GetEmpleadoByQuery(string? query)
+        {
+            try
+            {
+                IEnumerable<EmpleadosDTO> response = await repository.GetEmpleadoByQuery(query);
+                return response;
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+        }
         #endregion
     }
 }

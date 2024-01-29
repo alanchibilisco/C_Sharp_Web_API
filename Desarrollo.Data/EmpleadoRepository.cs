@@ -1,7 +1,9 @@
+
 using Dapper;
 using Desarollo.Models;
 using Microsoft.Extensions.Configuration;
 using MySql.Data.MySqlClient;
+
 
 
 namespace Desarrollo.Data
@@ -9,7 +11,7 @@ namespace Desarrollo.Data
     public class EmpleadoRepository
     {
         #region Fields
-        private readonly IConfiguration _configuration;
+        private readonly IConfiguration _configuration;        
         private readonly string _DDBB;
 
 
@@ -17,11 +19,13 @@ namespace Desarrollo.Data
         #region Constructor
         public EmpleadoRepository(IConfiguration configuration)
         {
-            this._configuration = configuration;
+            this._configuration = configuration;            
             //this._DDBB = this._configuration.GetConnectionString("DefaultConnection")!;
             this._DDBB = Database.GetDataBase();
 
         }
+        #endregion
+        #region Private Methods       
         #endregion
         #region Public Methods
         public async Task<IEnumerable<EmpleadosDTO>> GetEmpleados()
@@ -108,6 +112,29 @@ namespace Desarrollo.Data
             catch (System.Exception)
             {
 
+                throw;
+            }
+        }
+
+
+        public async Task<IEnumerable<EmpleadosDTO>> GetEmpleadoByQuery(string? param)
+        {
+            try
+            {
+                string query=@"select ep.id as Id, ep.nombre as Nombre, ep.apellido as Apellido, es.nombre as Empresa, c.nombre_cargo as Cargo from Empleado ep join Empresa es on ep.empresaId = es.id join CargoEmpleado ce on ce.empleadoId = ep.id join Cargo c on c.id = ce.cargoId where ep.nombre like @Nombre;";
+                /*if (!string.IsNullOrEmpty(param))
+                {
+                    query+=" where nombre like @Nombre;";
+                }*/
+
+                using MySqlConnection connection = new MySqlConnection(_DDBB);
+                
+                IEnumerable<EmpleadosDTO> response=await connection.QueryAsync<EmpleadosDTO>(query, new{Nombre=$"%{@param}%"});
+                return response;
+            }
+            catch (System.Exception)
+            {
+                
                 throw;
             }
         }
