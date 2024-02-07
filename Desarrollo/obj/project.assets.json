@@ -891,6 +891,45 @@
         "runtime": {
           "lib/net7.0/ZstdSharp.dll": {}
         }
+      },
+      "Desarrollo.ContextDB/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Desarrollo.Modelos": "1.0.0",
+          "MySql.EntityFrameworkCore": "7.0.5"
+        },
+        "compile": {
+          "bin/placeholder/Desarrollo.ContextDB.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Desarrollo.ContextDB.dll": {}
+        }
+      },
+      "Desarrollo.Data/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Desarrollo.ContextDB": "1.0.0",
+          "Desarrollo.Modelos": "1.0.0",
+          "MySql.EntityFrameworkCore": "7.0.5"
+        },
+        "compile": {
+          "bin/placeholder/Desarrollo.Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Desarrollo.Data.dll": {}
+        }
+      },
+      "Desarrollo.Modelos/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/Desarrollo.Modelos.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Desarrollo.Modelos.dll": {}
+        }
       }
     }
   },
@@ -2842,10 +2881,27 @@
         "zstdsharp.port.0.7.1.nupkg.sha512",
         "zstdsharp.port.nuspec"
       ]
+    },
+    "Desarrollo.ContextDB/1.0.0": {
+      "type": "project",
+      "path": "../Desarrollo.Context/Desarrollo.ContextDB.csproj",
+      "msbuildProject": "../Desarrollo.Context/Desarrollo.ContextDB.csproj"
+    },
+    "Desarrollo.Data/1.0.0": {
+      "type": "project",
+      "path": "../Desarrollo.Data/Desarrollo.Data.csproj",
+      "msbuildProject": "../Desarrollo.Data/Desarrollo.Data.csproj"
+    },
+    "Desarrollo.Modelos/1.0.0": {
+      "type": "project",
+      "path": "../Desarrollo.Modelos/Desarrollo.Modelos.csproj",
+      "msbuildProject": "../Desarrollo.Modelos/Desarrollo.Modelos.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
+      "Desarrollo.ContextDB >= 1.0.0",
+      "Desarrollo.Data >= 1.0.0",
       "Microsoft.AspNetCore.OpenApi >= 7.0.15",
       "MySql.EntityFrameworkCore >= 7.0.5",
       "Swashbuckle.AspNetCore >= 6.5.0"
@@ -2875,7 +2931,14 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/home/alan/CursoC#/ApiRest/Desarrollo.Context/Desarrollo.ContextDB.csproj": {
+              "projectPath": "/home/alan/CursoC#/ApiRest/Desarrollo.Context/Desarrollo.ContextDB.csproj"
+            },
+            "/home/alan/CursoC#/ApiRest/Desarrollo.Data/Desarrollo.Data.csproj": {
+              "projectPath": "/home/alan/CursoC#/ApiRest/Desarrollo.Data/Desarrollo.Data.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

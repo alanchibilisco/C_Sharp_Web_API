@@ -1,0 +1,11 @@
+/home/alan/CursoC#/ApiRest/Desarrollo.Modelos/bin/Debug/net7.0/Desarrollo.Modelos.deps.json
+/home/alan/CursoC#/ApiRest/Desarrollo.Modelos/bin/Debug/net7.0/Desarrollo.Modelos.dll
+/home/alan/CursoC#/ApiRest/Desarrollo.Modelos/bin/Debug/net7.0/Desarrollo.Modelos.pdb
+/home/alan/CursoC#/ApiRest/Desarrollo.Modelos/obj/Debug/net7.0/Desarrollo.Modelos.GeneratedMSBuildEditorConfig.editorconfig
+/home/alan/CursoC#/ApiRest/Desarrollo.Modelos/obj/Debug/net7.0/Desarrollo.Modelos.AssemblyInfoInputs.cache
+/home/alan/CursoC#/ApiRest/Desarrollo.Modelos/obj/Debug/net7.0/Desarrollo.Modelos.AssemblyInfo.cs
+/home/alan/CursoC#/ApiRest/Desarrollo.Modelos/obj/Debug/net7.0/Desarrollo.Modelos.csproj.CoreCompileInputs.cache
+/home/alan/CursoC#/ApiRest/Desarrollo.Modelos/obj/Debug/net7.0/Desarrollo.Modelos.dll
+/home/alan/CursoC#/ApiRest/Desarrollo.Modelos/obj/Debug/net7.0/refint/Desarrollo.Modelos.dll
+/home/alan/CursoC#/ApiRest/Desarrollo.Modelos/obj/Debug/net7.0/Desarrollo.Modelos.pdb
+/home/alan/CursoC#/ApiRest/Desarrollo.Modelos/obj/Debug/net7.0/ref/Desarrollo.Modelos.dll

@@ -8,6 +8,8 @@
     ".NETCoreApp,Version=v7.0": {
       "Desarrollo/1.0.0": {
         "dependencies": {
+          "Desarrollo.ContextDB": "1.0.0",
+          "Desarrollo.Data": "1.0.0",
           "Microsoft.AspNetCore.OpenApi": "7.0.15",
           "MySql.EntityFrameworkCore": "7.0.5",
           "Swashbuckle.AspNetCore": "6.5.0"
@@ -446,6 +448,30 @@
             "fileVersion": "0.7.1.0"
           }
         }
+      },
+      "Desarrollo.ContextDB/1.0.0": {
+        "dependencies": {
+          "Desarrollo.Modelos": "1.0.0",
+          "MySql.EntityFrameworkCore": "7.0.5"
+        },
+        "runtime": {
+          "Desarrollo.ContextDB.dll": {}
+        }
+      },
+      "Desarrollo.Data/1.0.0": {
+        "dependencies": {
+          "Desarrollo.ContextDB": "1.0.0",
+          "Desarrollo.Modelos": "1.0.0",
+          "MySql.EntityFrameworkCore": "7.0.5"
+        },
+        "runtime": {
+          "Desarrollo.Data.dll": {}
+        }
+      },
+      "Desarrollo.Modelos/1.0.0": {
+        "runtime": {
+          "Desarrollo.Modelos.dll": {}
+        }
       }
     }
   },
@@ -825,6 +851,21 @@
       "sha512": "sha512-Idgg+mJEyAujqDPzA3APy9dNoyw0YQcNA65GgYjktDRtJ+nvx/hv+J+m6Eax3JJMGEYGy04oc5YNP6ZvQ3Y1vQ==",
       "path": "zstdsharp.port/0.7.1",
       "hashPath": "zstdsharp.port.0.7.1.nupkg.sha512"
+    },
+    "Desarrollo.ContextDB/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Desarrollo.Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Desarrollo.Modelos/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

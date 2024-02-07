@@ -1,0 +1,15 @@
+/home/alan/CursoC#/ApiRest/Desarrollo.Context/bin/Debug/net7.0/Desarrollo.ContextDB.deps.json
+/home/alan/CursoC#/ApiRest/Desarrollo.Context/bin/Debug/net7.0/Desarrollo.ContextDB.dll
+/home/alan/CursoC#/ApiRest/Desarrollo.Context/bin/Debug/net7.0/Desarrollo.ContextDB.pdb
+/home/alan/CursoC#/ApiRest/Desarrollo.Context/bin/Debug/net7.0/Desarrollo.Modelos.dll
+/home/alan/CursoC#/ApiRest/Desarrollo.Context/bin/Debug/net7.0/Desarrollo.Modelos.pdb
+/home/alan/CursoC#/ApiRest/Desarrollo.Context/obj/Debug/net7.0/Desarrollo.ContextDB.csproj.AssemblyReference.cache
+/home/alan/CursoC#/ApiRest/Desarrollo.Context/obj/Debug/net7.0/Desarrollo.ContextDB.GeneratedMSBuildEditorConfig.editorconfig
+/home/alan/CursoC#/ApiRest/Desarrollo.Context/obj/Debug/net7.0/Desarrollo.ContextDB.AssemblyInfoInputs.cache
+/home/alan/CursoC#/ApiRest/Desarrollo.Context/obj/Debug/net7.0/Desarrollo.ContextDB.AssemblyInfo.cs
+/home/alan/CursoC#/ApiRest/Desarrollo.Context/obj/Debug/net7.0/Desarrollo.ContextDB.csproj.CoreCompileInputs.cache
+/home/alan/CursoC#/ApiRest/Desarrollo.Context/obj/Debug/net7.0/Desarrollo.ContextDB.csproj.CopyComplete
+/home/alan/CursoC#/ApiRest/Desarrollo.Context/obj/Debug/net7.0/Desarrollo.ContextDB.dll
+/home/alan/CursoC#/ApiRest/Desarrollo.Context/obj/Debug/net7.0/refint/Desarrollo.ContextDB.dll
+/home/alan/CursoC#/ApiRest/Desarrollo.Context/obj/Debug/net7.0/Desarrollo.ContextDB.pdb
+/home/alan/CursoC#/ApiRest/Desarrollo.Context/obj/Debug/net7.0/ref/Desarrollo.ContextDB.dll

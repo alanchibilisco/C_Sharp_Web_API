@@ -17,4 +17,9 @@
     <Folder Include="Repository/" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Desarrollo.Context\Desarrollo.ContextDB.csproj" />
+    <ProjectReference Include="..\Desarrollo.Data\Desarrollo.Data.csproj" />
+  </ItemGroup>
+
 </Project>

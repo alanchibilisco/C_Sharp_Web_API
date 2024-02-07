@@ -10,6 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();//agregar esto para que tome los controladores desde la carpeta controllers
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+string? db=Environment.GetEnvironmentVariable("DB_CONNECTION");
+System.Console.WriteLine("###DB--> {0}",db);
 builder.Services.AddDbContext<Context>(options=>options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection")));//esto es para obtener la conexion a la base de datos
 
 var app = builder.Build();
