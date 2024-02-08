@@ -9,14 +9,23 @@
       "Desarrollo/1.0.0": {
         "dependencies": {
           "Desarrollo.ContextDB": "1.0.0",
-          "Desarrollo.Data": "1.0.0",
           "Desarrollo.Modelos": "1.0.0",
+          "Desarrollo.Services": "1.0.0",
           "Microsoft.AspNetCore.OpenApi": "7.0.15",
           "MySql.EntityFrameworkCore": "7.0.5",
-          "Swashbuckle.AspNetCore": "6.5.0"
+          "Swashbuckle.AspNetCore": "6.5.0",
+          "dotenv.net": "3.1.3"
         },
         "runtime": {
           "Desarrollo.dll": {}
+        }
+      },
+      "dotenv.net/3.1.3": {
+        "runtime": {
+          "lib/netstandard2.1/dotenv.net.dll": {
+            "assemblyVersion": "3.1.3.0",
+            "fileVersion": "3.1.3.0"
+          }
         }
       },
       "Google.Protobuf/3.21.9": {
@@ -473,6 +482,15 @@
         "runtime": {
           "Desarrollo.Modelos.dll": {}
         }
+      },
+      "Desarrollo.Services/1.0.0": {
+        "dependencies": {
+          "Desarrollo.Data": "1.0.0",
+          "Desarrollo.Modelos": "1.0.0"
+        },
+        "runtime": {
+          "Desarrollo.Services.dll": {}
+        }
       }
     }
   },
@@ -481,6 +499,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "dotenv.net/3.1.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-gzksGrozUM/6OzBL2M99EINDLB5vhZScnRw5/oYaKx0O4PWusCBzzq9JCofhP8nL3uoli6V7SLmrwpF/PTj8XQ==",
+      "path": "dotenv.net/3.1.3",
+      "hashPath": "dotenv.net.3.1.3.nupkg.sha512"
     },
     "Google.Protobuf/3.21.9": {
       "type": "package",
@@ -864,6 +889,11 @@
       "sha512": ""
     },
     "Desarrollo.Modelos/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Desarrollo.Services/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

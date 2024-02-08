@@ -2,6 +2,15 @@
   "version": 3,
   "targets": {
     "net7.0": {
+      "dotenv.net/3.1.3": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/dotenv.net.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/dotenv.net.dll": {}
+        }
+      },
       "Google.Protobuf/3.21.9": {
         "type": "package",
         "compile": {
@@ -930,10 +939,39 @@
         "runtime": {
           "bin/placeholder/Desarrollo.Modelos.dll": {}
         }
+      },
+      "Desarrollo.Services/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Desarrollo.Data": "1.0.0",
+          "Desarrollo.Modelos": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Desarrollo.Services.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Desarrollo.Services.dll": {}
+        }
       }
     }
   },
   "libraries": {
+    "dotenv.net/3.1.3": {
+      "sha512": "gzksGrozUM/6OzBL2M99EINDLB5vhZScnRw5/oYaKx0O4PWusCBzzq9JCofhP8nL3uoli6V7SLmrwpF/PTj8XQ==",
+      "type": "package",
+      "path": "dotenv.net/3.1.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "dotenv.net.3.1.3.nupkg.sha512",
+        "dotenv.net.nuspec",
+        "lib/netstandard1.6/dotenv.net.dll",
+        "lib/netstandard2.0/dotenv.net.dll",
+        "lib/netstandard2.1/dotenv.net.dll"
+      ]
+    },
     "Google.Protobuf/3.21.9": {
       "sha512": "OTpFujTgkmqMLbg3KT7F/iuKi1rg6s5FCS2M9XcVLDn40zL8wgXm37CY/F6MeOEXKjdcnXGCN/h7oyMkVydVsg==",
       "type": "package",
@@ -2896,16 +2934,22 @@
       "type": "project",
       "path": "../Desarrollo.Modelos/Desarrollo.Modelos.csproj",
       "msbuildProject": "../Desarrollo.Modelos/Desarrollo.Modelos.csproj"
+    },
+    "Desarrollo.Services/1.0.0": {
+      "type": "project",
+      "path": "../Desarrollo.Services/Desarrollo.Services.csproj",
+      "msbuildProject": "../Desarrollo.Services/Desarrollo.Services.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
       "Desarrollo.ContextDB >= 1.0.0",
-      "Desarrollo.Data >= 1.0.0",
       "Desarrollo.Modelos >= 1.0.0",
+      "Desarrollo.Services >= 1.0.0",
       "Microsoft.AspNetCore.OpenApi >= 7.0.15",
       "MySql.EntityFrameworkCore >= 7.0.5",
-      "Swashbuckle.AspNetCore >= 6.5.0"
+      "Swashbuckle.AspNetCore >= 6.5.0",
+      "dotenv.net >= 3.1.3"
     ]
   },
   "packageFolders": {
@@ -2936,11 +2980,11 @@
             "/home/alan/CursoC#/ApiRest/Desarrollo.Context/Desarrollo.ContextDB.csproj": {
               "projectPath": "/home/alan/CursoC#/ApiRest/Desarrollo.Context/Desarrollo.ContextDB.csproj"
             },
-            "/home/alan/CursoC#/ApiRest/Desarrollo.Data/Desarrollo.Data.csproj": {
-              "projectPath": "/home/alan/CursoC#/ApiRest/Desarrollo.Data/Desarrollo.Data.csproj"
-            },
             "/home/alan/CursoC#/ApiRest/Desarrollo.Modelos/Desarrollo.Modelos.csproj": {
               "projectPath": "/home/alan/CursoC#/ApiRest/Desarrollo.Modelos/Desarrollo.Modelos.csproj"
+            },
+            "/home/alan/CursoC#/ApiRest/Desarrollo.Services/Desarrollo.Services.csproj": {
+              "projectPath": "/home/alan/CursoC#/ApiRest/Desarrollo.Services/Desarrollo.Services.csproj"
             }
           }
         }
@@ -2966,6 +3010,10 @@
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[6.5.0, )"
+          },
+          "dotenv.net": {
+            "target": "Package",
+            "version": "[3.1.3, )"
           }
         },
         "imports": [

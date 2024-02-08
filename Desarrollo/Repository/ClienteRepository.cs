@@ -1,7 +1,8 @@
-using Desarrollo.Data;
+//using Desarrollo.Data;
 using Desarrollo.Dto;
-using Desarrollo.Models;
-
+//using Desarrollo.Models;
+using Desarrollo.ContextDB;
+using Desarrollo.Modelos;
 
 
 namespace Desarrollo.Repository

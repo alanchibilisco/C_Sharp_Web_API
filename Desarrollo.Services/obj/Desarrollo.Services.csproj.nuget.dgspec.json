@@ -1,0 +1,250 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/alan/CursoC#/ApiRest/Desarrollo.Services/Desarrollo.Services.csproj": {}
+  },
+  "projects": {
+    "/home/alan/CursoC#/ApiRest/Desarrollo.Context/Desarrollo.ContextDB.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/alan/CursoC#/ApiRest/Desarrollo.Context/Desarrollo.ContextDB.csproj",
+        "projectName": "Desarrollo.ContextDB",
+        "projectPath": "/home/alan/CursoC#/ApiRest/Desarrollo.Context/Desarrollo.ContextDB.csproj",
+        "packagesPath": "/home/alan/.nuget/packages/",
+        "outputPath": "/home/alan/CursoC#/ApiRest/Desarrollo.Context/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/alan/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "/home/alan/CursoC#/ApiRest/Desarrollo.Modelos/Desarrollo.Modelos.csproj": {
+                "projectPath": "/home/alan/CursoC#/ApiRest/Desarrollo.Modelos/Desarrollo.Modelos.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "MySql.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/7.0.405/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/alan/CursoC#/ApiRest/Desarrollo.Data/Desarrollo.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/alan/CursoC#/ApiRest/Desarrollo.Data/Desarrollo.Data.csproj",
+        "projectName": "Desarrollo.Data",
+        "projectPath": "/home/alan/CursoC#/ApiRest/Desarrollo.Data/Desarrollo.Data.csproj",
+        "packagesPath": "/home/alan/.nuget/packages/",
+        "outputPath": "/home/alan/CursoC#/ApiRest/Desarrollo.Data/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/alan/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "/home/alan/CursoC#/ApiRest/Desarrollo.Context/Desarrollo.ContextDB.csproj": {
+                "projectPath": "/home/alan/CursoC#/ApiRest/Desarrollo.Context/Desarrollo.ContextDB.csproj"
+              },
+              "/home/alan/CursoC#/ApiRest/Desarrollo.Modelos/Desarrollo.Modelos.csproj": {
+                "projectPath": "/home/alan/CursoC#/ApiRest/Desarrollo.Modelos/Desarrollo.Modelos.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "MySql.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/7.0.405/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/alan/CursoC#/ApiRest/Desarrollo.Modelos/Desarrollo.Modelos.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/alan/CursoC#/ApiRest/Desarrollo.Modelos/Desarrollo.Modelos.csproj",
+        "projectName": "Desarrollo.Modelos",
+        "projectPath": "/home/alan/CursoC#/ApiRest/Desarrollo.Modelos/Desarrollo.Modelos.csproj",
+        "packagesPath": "/home/alan/.nuget/packages/",
+        "outputPath": "/home/alan/CursoC#/ApiRest/Desarrollo.Modelos/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/alan/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/7.0.405/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/alan/CursoC#/ApiRest/Desarrollo.Services/Desarrollo.Services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/alan/CursoC#/ApiRest/Desarrollo.Services/Desarrollo.Services.csproj",
+        "projectName": "Desarrollo.Services",
+        "projectPath": "/home/alan/CursoC#/ApiRest/Desarrollo.Services/Desarrollo.Services.csproj",
+        "packagesPath": "/home/alan/.nuget/packages/",
+        "outputPath": "/home/alan/CursoC#/ApiRest/Desarrollo.Services/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/alan/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "/home/alan/CursoC#/ApiRest/Desarrollo.Data/Desarrollo.Data.csproj": {
+                "projectPath": "/home/alan/CursoC#/ApiRest/Desarrollo.Data/Desarrollo.Data.csproj"
+              },
+              "/home/alan/CursoC#/ApiRest/Desarrollo.Modelos/Desarrollo.Modelos.csproj": {
+                "projectPath": "/home/alan/CursoC#/ApiRest/Desarrollo.Modelos/Desarrollo.Modelos.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/7.0.405/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -1,15 +1,15 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Threading.Tasks;
 //using Desarrollo.Data;
-using Context = Desarrollo.ContextDB.Context;
+using Desarrollo.ContextDB;
 using Desarrollo.Dto;
 //using Desarrollo.Models;
 using Desarrollo.Modelos;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Desarrollo.Data;
+//using Microsoft.EntityFrameworkCore;
+using Desarrollo.Services;
 
 namespace Desarrollo.Controllers
 {
@@ -18,11 +18,11 @@ namespace Desarrollo.Controllers
     public class CargoController : ControllerBase
     {
         private readonly Context _context;
-        private CargoRepository repository;    
+        private readonly CargoServices service;
         public CargoController(Context context)
         {
             _context=context;
-            this.repository= new CargoRepository(context);
+            service= new CargoServices(context);
         }
 
         [HttpPost]
@@ -50,7 +50,7 @@ namespace Desarrollo.Controllers
             try
             {
                 //List<Cargo> cargos=await _context.Cargo.ToListAsync();
-                var cargos=await repository.Cargos();
+                var cargos=await service.GetCargosTodos();
                 //throw new Exception("Excepcion");
                 //return Ok(new{success=true, message="SUCCESS", data=cargos});
                 return Ok(ResponseMessage.SuccessResponse(cargos));

@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Transactions;
-using Desarrollo.Data;
+//using Desarrollo.Data;
 using Desarrollo.Dto;
-using Desarrollo.Models;
+//using Desarrollo.Models;
 using Microsoft.AspNetCore.Mvc;
+using Desarrollo.ContextDB;
+using Desarrollo.Modelos;
 
 namespace Desarrollo.Controllers
 {
@@ -33,7 +35,7 @@ namespace Desarrollo.Controllers
             try
             {
                 //TODO: crear registro en CargoEmpleadoTambien
-                _context.Empleado.Add(new Models.Empleado { Nombre = body.Nombre, Apellido = body.Apellido, EmpresaId = body.EmpresaId });
+                _context.Empleado.Add(new Modelos.Empleado { Nombre = body.Nombre, Apellido = body.Apellido, EmpresaId = body.EmpresaId });
                 var result = await _context.SaveChangesAsync();
                 return Ok(new { success = true, message = "Success", data = result });
             }

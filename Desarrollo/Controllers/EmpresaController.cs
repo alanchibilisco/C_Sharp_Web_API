@@ -1,9 +1,11 @@
-using Desarrollo.Data;
+//using Desarrollo.Data;
 using Desarrollo.Dto;
-using Desarrollo.Models;
+//using Desarrollo.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.OpenApi.Expressions;
+//using Microsoft.OpenApi.Expressions;
+using Desarrollo.Modelos;
+using Desarrollo.ContextDB;
 
 namespace Desarrollo.Controllers
 {

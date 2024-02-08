@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "t/f9rIffPCcvcxmwZ2svb/sd+J8+DKnpR+SdosC2JGAU5DALyjAHG2Yy7PJ/35F3AbsF0mdlEPNQC/qDiCtsOQ==",
+  "dgSpecHash": "lLwdVLFmX+ouGxwU65yBaqgyTbZ2HFSU/MbtFFD8CvLSZpS3kxgbkT5v5rdSCYPksqGOJjgECwvqzRyYQhm5EA==",
   "success": true,
   "projectFilePath": "/home/alan/CursoC#/ApiRest/Desarrollo/Desarrollo.csproj",
   "expectedPackageFiles": [
+    "/home/alan/.nuget/packages/dotenv.net/3.1.3/dotenv.net.3.1.3.nupkg.sha512",
     "/home/alan/.nuget/packages/google.protobuf/3.21.9/google.protobuf.3.21.9.nupkg.sha512",
     "/home/alan/.nuget/packages/k4os.compression.lz4/1.3.5/k4os.compression.lz4.1.3.5.nupkg.sha512",
     "/home/alan/.nuget/packages/k4os.compression.lz4.streams/1.3.5/k4os.compression.lz4.streams.1.3.5.nupkg.sha512",
