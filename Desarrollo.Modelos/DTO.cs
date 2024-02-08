@@ -1,4 +1,4 @@
-﻿namespace Desarrollo.Dto;
+﻿namespace Desarrollo.Modelos;
 
 public class PostClienteDTO
 {

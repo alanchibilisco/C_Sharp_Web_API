@@ -25,7 +25,7 @@ public class ResponseMessage
     }
     #endregion
 
-    public static ResponseMessage SuccessResponse(object? Data)
+    public static ResponseMessage SuccessResponse(object Data)
     {
         ResponseMessage response=new ResponseMessage(true, "SUCCESS", Data);
 
