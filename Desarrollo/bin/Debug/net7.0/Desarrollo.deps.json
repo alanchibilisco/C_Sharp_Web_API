@@ -10,6 +10,7 @@
         "dependencies": {
           "Desarrollo.ContextDB": "1.0.0",
           "Desarrollo.Data": "1.0.0",
+          "Desarrollo.Modelos": "1.0.0",
           "Microsoft.AspNetCore.OpenApi": "7.0.15",
           "MySql.EntityFrameworkCore": "7.0.5",
           "Swashbuckle.AspNetCore": "6.5.0"

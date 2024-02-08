@@ -2,6 +2,8 @@
 using Microsoft.Extensions.Configuration;
 using Desarrollo.Data;
 using Microsoft.EntityFrameworkCore;
+using Desarrollo.ContextDB;
+using Context = Desarrollo.ContextDB.Context;
 
 var builder = WebApplication.CreateBuilder(args);
 

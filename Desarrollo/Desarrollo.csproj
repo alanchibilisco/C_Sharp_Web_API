@@ -20,6 +20,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Desarrollo.Context\Desarrollo.ContextDB.csproj" />
     <ProjectReference Include="..\Desarrollo.Data\Desarrollo.Data.csproj" />
+    <ProjectReference Include="..\Desarrollo.Modelos\Desarrollo.Modelos.csproj" />
   </ItemGroup>
 
 </Project>
