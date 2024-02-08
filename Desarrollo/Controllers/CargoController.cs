@@ -30,10 +30,11 @@ namespace Desarrollo.Controllers
         {
             try
             {
-                Cargo c=new Cargo{Nombre_Cargo=body.Nombre_Cargo};
+                /*Cargo c=new Cargo{Nombre_Cargo=body.Nombre_Cargo};
                 _context.Cargo.Add(c);
-                var response=await _context.SaveChangesAsync();
-                return Ok(ResponseMessage.SuccessResponse());
+                var response=await _context.SaveChangesAsync();*/
+                Cargo response=await service.CreateNewCargo(body);
+                return Ok(ResponseMessage.SuccessResponse(body));
             }
             catch (System.Exception ex)
             {

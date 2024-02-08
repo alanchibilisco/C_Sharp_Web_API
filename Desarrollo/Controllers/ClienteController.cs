@@ -2,11 +2,11 @@
 //using Desarrollo.Data;
 
 //using Desarrollo.Models;
-using Desarrollo.Repository;
+
 using Microsoft.AspNetCore.Mvc;
 using Desarrollo.ContextDB;
 using Desarrollo.Modelos;
-
+using Desarrollo.Services;
 
 namespace Desarrollo.Controllers;
 [ApiController]
@@ -14,11 +14,11 @@ namespace Desarrollo.Controllers;
 public class ClienteController:ControllerBase
 {
     //private  Context context;
-    private ClienteRepository repository;
+    private ClienteServices service;
 
     public ClienteController(Context context)
     {
-        this.repository=new ClienteRepository(context);
+        this.service=new ClienteServices(context);
 
     }
 
@@ -28,7 +28,7 @@ public class ClienteController:ControllerBase
     {
         try
         {
-            Cliente response=await repository.CreateNewCliente(body);
+            Cliente response=await service.CreateNewCliente(body);
             return Ok(ResponseMessage.SuccessResponse(response));
         }
         catch (System.Exception ex)

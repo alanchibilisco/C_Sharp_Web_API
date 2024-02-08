@@ -27,4 +27,20 @@ public class CargoRepository
             throw;
         }
     }
+
+    public async Task<Cargo> CreateNewCargo(PostCargoDto body)
+    {
+        try
+        {
+            Cargo c=new Cargo{Nombre_Cargo=body.Nombre_Cargo};
+            _context.Cargo.Add(c);
+            await _context.SaveChangesAsync();
+            return c;
+        }
+        catch (System.Exception)
+        {
+            
+            throw;
+        }
+    }
 }
