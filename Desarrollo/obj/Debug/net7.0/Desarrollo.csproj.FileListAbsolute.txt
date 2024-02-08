@@ -64,6 +64,7 @@
 /home/alan/CursoC#/ApiRest/Desarrollo/bin/Debug/net7.0/Desarrollo.ContextDB.pdb
 /home/alan/CursoC#/ApiRest/Desarrollo/bin/Debug/net7.0/Desarrollo.Data.pdb
 /home/alan/CursoC#/ApiRest/Desarrollo/bin/Debug/net7.0/Desarrollo.Modelos.pdb
-/home/alan/CursoC#/ApiRest/Desarrollo/bin/Debug/net7.0/dotenv.net.dll
 /home/alan/CursoC#/ApiRest/Desarrollo/bin/Debug/net7.0/Desarrollo.Services.dll
 /home/alan/CursoC#/ApiRest/Desarrollo/bin/Debug/net7.0/Desarrollo.Services.pdb
+/home/alan/CursoC#/ApiRest/Desarrollo/bin/Debug/net7.0/AutoMapper.dll
+/home/alan/CursoC#/ApiRest/Desarrollo/bin/Debug/net7.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll

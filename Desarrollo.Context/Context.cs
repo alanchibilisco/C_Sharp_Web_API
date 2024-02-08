@@ -20,5 +20,7 @@ public class Context:DbContext
     public DbSet<Empresa> Empresa {get;set;}
 
     public DbSet<Empleado> Empleado {get;set;}
+
+    public DbSet<User> User{get;set;}
     
 }

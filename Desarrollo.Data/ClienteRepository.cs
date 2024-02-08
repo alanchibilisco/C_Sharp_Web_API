@@ -1,5 +1,7 @@
-﻿using Desarrollo.ContextDB;
+﻿using System.Collections;
+using Desarrollo.ContextDB;
 using Desarrollo.Modelos;
+using Microsoft.EntityFrameworkCore;
 
 namespace Desarrollo.Data;
 
@@ -19,6 +21,45 @@ public class ClienteRepository
             _context.Cliente.Add(c);
             int result =await _context.SaveChangesAsync();
             return c;
+        }
+        catch (System.Exception)
+        {
+            
+            throw;
+        }
+    }
+
+    public async Task<IEnumerable> GetAllClientes()
+    {
+        try
+        {
+            
+            IEnumerable response =await  _context.Cliente.Select(cliente=> new{
+                id=cliente.Id,
+                nombre=cliente.Nombre,
+                email=cliente.Email,
+                Empresa=_context.Empresa.Where(empresa=>empresa.Id == cliente.EmpresaId).Select(empresa=>empresa.Nombre).First()
+            }).ToListAsync();
+            return response;
+        }
+        catch (System.Exception)
+        {
+            
+            throw;
+        }
+    }
+
+    public async Task<ClienteResponse> GetClienteByEmail(string email)
+    {
+        try
+        {
+            ClienteResponse response=await _context.Cliente.Select(cliente=>new ClienteResponse{
+                Id=cliente.Id,
+                Nombre=cliente.Nombre,
+                Email=cliente.Email,
+                Empresa=_context.Empresa.Where(empresa=> empresa.Id==cliente.EmpresaId).Select(empresa=>empresa.Nombre).First()
+            }).Where(cliente=> cliente.Email==email).FirstAsync();
+            return response;
         }
         catch (System.Exception)
         {

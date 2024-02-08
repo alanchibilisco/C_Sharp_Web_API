@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Desarrollo.ContextDB;
 using Desarrollo.Modelos;
 using Desarrollo.Services;
+using System.Collections;
 
 namespace Desarrollo.Controllers;
 [ApiController]
@@ -14,7 +15,7 @@ namespace Desarrollo.Controllers;
 public class ClienteController:ControllerBase
 {
     //private  Context context;
-    private ClienteServices service;
+    private readonly ClienteServices service;
 
     public ClienteController(Context context)
     {
@@ -35,6 +36,39 @@ public class ClienteController:ControllerBase
         {
             System.Console.WriteLine("Error--> {0}",ex);
             return BadRequest(ResponseMessage.ErrorResponse("Error inesperado"));
+        }
+    }
+
+    [HttpGet]
+    [Route("get-all")]
+    public async Task<ActionResult> GetAllCliente()
+    {
+        try
+        {
+            IEnumerable response=await service.GetAllClientes();
+            return Ok(ResponseMessage.SuccessResponse(response));
+        }
+        catch (System.Exception ex)
+        {
+            System.Console.WriteLine("Error--> {0}",ex);
+            return StatusCode(StatusCodes.Status500InternalServerError,ResponseMessage.ErrorResponse("Error Inesperado"));
+            
+        }
+    }
+
+    [HttpPost]
+    [Route("get-by-email")]
+    public async Task<ActionResult> GetClienteByEmail([FromBody]EmailBodyDTO body)
+    {
+        try
+        {
+            ClienteResponse response=await service.GetClienteByEmail(body.Email);
+            return Ok(ResponseMessage.SuccessResponse(response));
+        }
+        catch (System.Exception ex)
+        {
+            System.Console.WriteLine("Error--> {0}",ex);
+            return StatusCode(StatusCodes.Status500InternalServerError, ResponseMessage.ErrorResponse("Error inesperado"));
         }
     }
     /*[HttpGet]
