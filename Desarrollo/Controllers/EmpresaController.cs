@@ -14,11 +14,11 @@ namespace Desarrollo.Controllers
     public class EmpresaController : ControllerBase
     {
         #region fields
-        private readonly Context _context;
+        private readonly TestContext _context;
         #endregion
 
         #region Constructor
-        public EmpresaController(Context context)
+        public EmpresaController(TestContext context)
         {
             _context = context;
         }

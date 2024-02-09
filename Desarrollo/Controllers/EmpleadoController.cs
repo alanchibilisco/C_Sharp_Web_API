@@ -17,11 +17,11 @@ namespace Desarrollo.Controllers
     public class EmpleadoController : ControllerBase
     {
         #region Fields
-        private readonly Context _context;
+        private readonly TestContext _context;
         #endregion
 
         #region Constructor
-        public EmpleadoController(Context context)
+        public EmpleadoController(TestContext context)
         {
             _context = context;
         }

@@ -13,7 +13,7 @@ namespace Desarrollo.Services
     {
         private ClienteRepository repository;
 
-        public ClienteServices(Context context)
+        public ClienteServices(TestContext context)
         {
             repository=new ClienteRepository(context);
         }

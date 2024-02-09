@@ -17,7 +17,7 @@ public class ClienteController:ControllerBase
     //private  Context context;
     private readonly ClienteServices service;
 
-    public ClienteController(Context context)
+    public ClienteController(TestContext context)
     {
         this.service=new ClienteServices(context);
 

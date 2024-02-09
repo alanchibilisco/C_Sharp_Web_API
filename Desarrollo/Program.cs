@@ -3,6 +3,8 @@
 //using Desarrollo.Data;
 using Microsoft.EntityFrameworkCore;
 using Desarrollo.ContextDB;
+using Desarrollo.Data;
+using Desarrollo.Services;
 
 //using Context = Desarrollo.ContextDB.Context;
 
@@ -13,7 +15,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();//agregar esto para que tome los controladores desde la carpeta controllers
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddDbContext<Context>(options=>options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection")));//esto es para obtener la conexion a la base de datos
+builder.Services.AddDbContext<TestContext>(options=>options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection")));//esto es para obtener la conexion a la base de datos
+builder.Services.AddTransient<IUserService, UserServices>();
+builder.Services.AddTransient<IUserRepository, UserRepository>();
 
 var app = builder.Build();
 

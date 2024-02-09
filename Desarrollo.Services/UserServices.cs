@@ -9,20 +9,20 @@ using Desarrollo.Modelos;
 
 namespace Desarrollo.Services
 {
-    public class UserServices
+    public class UserServices:IUserService
     {
-        private readonly UserRepository _repository;
+        private readonly IUserRepository _repository;
 
-        public UserServices(Context context)
+        public UserServices(IUserRepository userRepository)
         {
-            _repository=new UserRepository(context);
+          _repository=userRepository;
         }
 
         public async Task<bool> UserExists(string email)
         {
             try
             {
-                bool exist=await _repository.UserExist(email);
+                bool exist=await _repository.UserExists(email);
                 return exist;
             }
             catch (System.Exception)

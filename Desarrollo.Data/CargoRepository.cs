@@ -7,9 +7,9 @@ using Microsoft.EntityFrameworkCore;
 
 public class CargoRepository
 {
-    private readonly Context _context;
+    private readonly TestContext _context;
 
-    public CargoRepository(Context context)
+    public CargoRepository(TestContext context)
     {
         this._context=context;
     }

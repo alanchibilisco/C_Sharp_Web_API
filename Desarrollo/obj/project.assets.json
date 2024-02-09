@@ -3057,6 +3057,7 @@
     "net7.0": [
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 12.0.1",
       "Desarrollo.ContextDB >= 1.0.0",
+      "Desarrollo.Data >= 1.0.0",
       "Desarrollo.Modelos >= 1.0.0",
       "Desarrollo.Services >= 1.0.0",
       "Microsoft.AspNetCore.OpenApi >= 7.0.15",
@@ -3091,6 +3092,9 @@
           "projectReferences": {
             "/home/alan/CursoC#/ApiRest/Desarrollo.Context/Desarrollo.ContextDB.csproj": {
               "projectPath": "/home/alan/CursoC#/ApiRest/Desarrollo.Context/Desarrollo.ContextDB.csproj"
+            },
+            "/home/alan/CursoC#/ApiRest/Desarrollo.Data/Desarrollo.Data.csproj": {
+              "projectPath": "/home/alan/CursoC#/ApiRest/Desarrollo.Data/Desarrollo.Data.csproj"
             },
             "/home/alan/CursoC#/ApiRest/Desarrollo.Modelos/Desarrollo.Modelos.csproj": {
               "projectPath": "/home/alan/CursoC#/ApiRest/Desarrollo.Modelos/Desarrollo.Modelos.csproj"

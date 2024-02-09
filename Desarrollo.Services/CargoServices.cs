@@ -9,7 +9,7 @@ public class CargoServices
 {
     private readonly CargoRepository repository;
 
-    public CargoServices(Context context)
+    public CargoServices(TestContext context)
     {
         this.repository=new CargoRepository(context);
     }

@@ -7,9 +7,9 @@ namespace Desarrollo.Data;
 
 public class ClienteRepository
 {
-    private readonly Context _context;
+    private readonly TestContext _context;
 
-    public ClienteRepository(Context context)
+    public ClienteRepository(TestContext context)
     {
         this._context=context;
     }

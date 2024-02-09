@@ -9,16 +9,16 @@ using System.Text.Json;
 
 namespace Desarrollo.Data
 {
-    public class UserRepository
+    public class UserRepository:IUserRepository
     {
-        private readonly Context _context;
+        private readonly TestContext _context;
 
-        public UserRepository(Context context)
+        public UserRepository(TestContext testContext)
         {
-            _context=context;
+            _context=testContext;
         }
 
-        public async Task<bool> UserExist(string email)
+        public async Task<bool> UserExists(string email)
         {
             try
             {

@@ -15,12 +15,14 @@ namespace Desarrollo.Controllers
     public class UserController : Controller
     {
         private readonly ILogger<UserController> _logger;
-        private readonly UserServices _service;
+        private readonly IUserService _service;
 
-        public UserController(ILogger<UserController> logger, Context context)
+        
+
+        public UserController(ILogger<UserController> logger, IUserService service)
         {
             _logger = logger;
-            _service=new UserServices(context);
+            _service=service;
         }
 
         [HttpPost]

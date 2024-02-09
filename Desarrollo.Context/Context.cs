@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Desarrollo.Modelos;
 
 
-public class Context:DbContext
+public class TestContext:DbContext
 {
-    public Context(DbContextOptions<Context> options):base(options)
+    public TestContext(DbContextOptions<TestContext> options):base(options)
     {
         
     }

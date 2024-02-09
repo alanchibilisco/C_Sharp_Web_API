@@ -18,6 +18,7 @@
     <ProjectReference Include="..\Desarrollo.Context\Desarrollo.ContextDB.csproj" />
     <ProjectReference Include="..\Desarrollo.Modelos\Desarrollo.Modelos.csproj" />
     <ProjectReference Include="..\Desarrollo.Services\Desarrollo.Services.csproj" />
+    <ProjectReference Include="..\Desarrollo.Data\Desarrollo.Data.csproj" />
   </ItemGroup>
 
 </Project>

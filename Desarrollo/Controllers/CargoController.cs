@@ -16,9 +16,9 @@ namespace Desarrollo.Controllers
     [Route("api/[controller]")]
     public class CargoController : ControllerBase
     {
-        private readonly Context _context;
+        private readonly TestContext _context;
         private readonly CargoServices service;
-        public CargoController(Context context)
+        public CargoController(TestContext context)
         {
             _context=context;
             service= new CargoServices(context);
