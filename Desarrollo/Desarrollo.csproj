@@ -17,6 +17,7 @@
     <!-- <ProjectReference Include="..\Desarrollo.Data\Desarrollo.Data.csproj" /> -->
     <ProjectReference Include="..\Desarollo.Models\Desarollo.Models.csproj" />
     <ProjectReference Include="..\Desarrollo.Services\Desarrollo.Services.csproj" />
+    <ProjectReference Include="..\Desarrollo.Data\Desarrollo.Data.csproj" />
   </ItemGroup>
 
 </Project>

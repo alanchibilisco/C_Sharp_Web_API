@@ -12,11 +12,11 @@ namespace Desarrollo.Controllers
     [Route("api/[controller]")]
     public class UserController : ControllerBase
     {
-        private UserService service;
+        private IUserService service;
 
-        public UserController(IConfiguration configuration)
+        public UserController(IUserService service)
         {
-            this.service=new UserService(configuration);
+            this.service=service;
         }
 
         [HttpGet]

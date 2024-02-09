@@ -9,13 +9,13 @@ using Microsoft.Extensions.Configuration;
 
 namespace Desarrollo.Services
 {
-    public class UserService
+    public class UserService:IUserService
     {
-        private UserRepository repository;
+        private IUserRepository repository;
 
-        public UserService(IConfiguration configuration)
+        public UserService(IUserRepository repository)
         {
-            this.repository=new UserRepository(configuration);
+            this.repository=repository;
         }
 
         public async Task<IEnumerable<User>> GetAll()

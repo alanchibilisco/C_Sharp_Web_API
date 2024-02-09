@@ -1,5 +1,7 @@
 using System.Text;
 using Desarrollo.Services.helpers;
+using Desarrollo.Services;
+using Desarrollo.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
@@ -60,7 +62,8 @@ builder.Services.AddSwaggerGen(c=>{
         }
     });
 });
-
+builder.Services.AddTransient<IUserService, UserService>();
+builder.Services.AddTransient<IUserRepository, UserRepository>();
 var app = builder.Build();
 
 

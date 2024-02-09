@@ -5,14 +5,14 @@ using MySql.Data.MySqlClient;
 
 namespace Desarrollo.Data
 {
-    public class UserRepository
+    public class UserRepository:IUserRepository
     {
         private readonly string _DDBB;
 
         public UserRepository(IConfiguration configuration)
         {
-            //this._DDBB=configuration.GetConnectionString("DefaultConnection")!;
-            this._DDBB=Database.GetDataBase();
+            this._DDBB=configuration.GetConnectionString("DefaultConnection")!;
+            //this._DDBB=Database.GetDataBase();
         }
 
         public async Task<IEnumerable<User>> GetAll()
