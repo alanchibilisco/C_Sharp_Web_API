@@ -64,6 +64,10 @@ builder.Services.AddSwaggerGen(c=>{
 });
 builder.Services.AddTransient<IUserService, UserService>();
 builder.Services.AddTransient<IUserRepository, UserRepository>();
+string? db=Environment.GetEnvironmentVariable("DB_CONNECTION");
+string dir=Environment.CurrentDirectory;
+System.Console.WriteLine("###Directorio--> {0}",dir);
+System.Console.WriteLine("###DB--> {0}",db);
 var app = builder.Build();
 
 

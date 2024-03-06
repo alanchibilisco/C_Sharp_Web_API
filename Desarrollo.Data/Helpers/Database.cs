@@ -8,6 +8,7 @@ internal class Database
     {
         DotEnv.Load();
         string?  connection=Environment.GetEnvironmentVariable("DB_CONNECTION") ?? throw new Exception("DB_CONNECTION variable is not defined");
+        System.Console.WriteLine($"###CONNECTION--> {connection}");
         return connection;
     }
 }
