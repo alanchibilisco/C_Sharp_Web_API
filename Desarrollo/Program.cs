@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using System.Security;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -27,6 +28,16 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 });
 builder.Services.AddAuthorization(options=>{
     options.AddPolicy("IsAdmin", policy=>policy.RequireRole("Admin"));
+    options.AddPolicy("IsPermissions", policy=>{
+        policy.RequireAssertion(context=>{
+            var pemissions=context.User.FindFirst("perm")?.Value;
+            if (pemissions==null)
+            {
+                return false;
+            }
+            return pemissions=="Admin";
+        });
+    });
 });
 builder.Services.AddSwaggerGen(c=>{
     var securityScheme = new OpenApiSecurityScheme

@@ -35,7 +35,8 @@ namespace Desarrollo.Controllers
                 return BadRequest(ResponseMessage.ErrorResponse("Error inesperado"));
             }
         }
-        [Authorize(Policy = "IsAdmin")]
+        //[Authorize(Policy = "IsAdmin")]
+        [Authorize(Policy = "IsPermissions")]
         [HttpGet]
         [Route("get-all-with-empleados")]
         public async Task<ActionResult> GetEmpresaConEmpleados()
