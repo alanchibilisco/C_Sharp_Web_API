@@ -7,15 +7,26 @@ using Desarrollo.Data;
 using Desarrollo.Services;
 
 //using Context = Desarrollo.ContextDB.Context;
-
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 var builder = WebApplication.CreateBuilder(args);
+// Configuración de CORS - Define una política global
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins, policy =>
+    {
+        policy.WithOrigins("http://localhost:3000")    // Permite cualquier origen. Si quieres restringirlo, usa .WithOrigins("https://example.com")
+              .AllowAnyMethod()    // Permite cualquier método HTTP: GET, POST, PUT, DELETE, etc.
+              .AllowAnyHeader();
+              
+    });
+});
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddControllers();//agregar esto para que tome los controladores desde la carpeta controllers
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddDbContext<TestContext>(options=>options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection")));//esto es para obtener la conexion a la base de datos
+builder.Services.AddDbContext<TestContext>(options => options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection")));//esto es para obtener la conexion a la base de datos
 builder.Services.AddTransient<IUserService, UserServices>();
 builder.Services.AddTransient<IUserRepository, UserRepository>();
 

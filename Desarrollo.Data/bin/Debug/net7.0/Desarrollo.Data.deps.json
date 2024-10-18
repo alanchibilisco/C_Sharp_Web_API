@@ -459,12 +459,18 @@
           "MySql.EntityFrameworkCore": "7.0.5"
         },
         "runtime": {
-          "Desarrollo.ContextDB.dll": {}
+          "Desarrollo.ContextDB.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "Desarrollo.Modelos/1.0.0": {
         "runtime": {
-          "Desarrollo.Modelos.dll": {}
+          "Desarrollo.Modelos.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }

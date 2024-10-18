@@ -6,7 +6,6 @@
 /home/alan/CursoC#/ApiRest/Desarrollo.Data/obj/Debug/net7.0/Desarrollo.Data.AssemblyInfoInputs.cache
 /home/alan/CursoC#/ApiRest/Desarrollo.Data/obj/Debug/net7.0/Desarrollo.Data.AssemblyInfo.cs
 /home/alan/CursoC#/ApiRest/Desarrollo.Data/obj/Debug/net7.0/Desarrollo.Data.csproj.CoreCompileInputs.cache
-/home/alan/CursoC#/ApiRest/Desarrollo.Data/obj/Debug/net7.0/Desarrollo.Data.csproj.CopyComplete
 /home/alan/CursoC#/ApiRest/Desarrollo.Data/obj/Debug/net7.0/Desarrollo.Data.dll
 /home/alan/CursoC#/ApiRest/Desarrollo.Data/obj/Debug/net7.0/refint/Desarrollo.Data.dll
 /home/alan/CursoC#/ApiRest/Desarrollo.Data/obj/Debug/net7.0/Desarrollo.Data.pdb
@@ -15,3 +14,5 @@
 /home/alan/CursoC#/ApiRest/Desarrollo.Data/bin/Debug/net7.0/Desarrollo.Modelos.dll
 /home/alan/CursoC#/ApiRest/Desarrollo.Data/bin/Debug/net7.0/Desarrollo.Modelos.pdb
 /home/alan/CursoC#/ApiRest/Desarrollo.Data/bin/Debug/net7.0/Desarrollo.ContextDB.pdb
+/home/alan/CursoC#/ApiRest/Desarrollo.Data/obj/Debug/net7.0/Desarrollo.Data.sourcelink.json
+/home/alan/CursoC#/ApiRest/Desarrollo.Data/obj/Debug/net7.0/Desarrol.ABB0CC99.Up2Date

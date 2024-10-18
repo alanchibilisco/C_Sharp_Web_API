@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Desarrollo.ContextDB")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a6e35f7fc634fbffc0dee99cb5fcfcba6143e09b")]
 [assembly: System.Reflection.AssemblyProductAttribute("Desarrollo.ContextDB")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Desarrollo.ContextDB")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
