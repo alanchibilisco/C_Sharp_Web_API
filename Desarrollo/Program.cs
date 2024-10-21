@@ -9,6 +9,8 @@ using Desarrollo.Services;
 //using Context = Desarrollo.ContextDB.Context;
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 var builder = WebApplication.CreateBuilder(args);
+// Configurar HttpClient
+builder.Services.AddHttpClient();
 // Configuración de CORS - Define una política global
 builder.Services.AddCors(options =>
 {
