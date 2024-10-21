@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "k7FmmAMrxjM=",
+  "dgSpecHash": "+4UbHIx63WE=",
   "success": true,
-  "projectFilePath": "/home/alan/CursoC#/ApiRest/Desarrollo.Context/Desarrollo.ContextDB.csproj",
+  "projectFilePath": "/home/alan/GrupoMass/Cotizador-JOSHUA/TEST/backend-net-test/Desarrollo.Context/Desarrollo.ContextDB.csproj",
   "expectedPackageFiles": [
     "/home/alan/.nuget/packages/google.protobuf/3.21.9/google.protobuf.3.21.9.nupkg.sha512",
     "/home/alan/.nuget/packages/k4os.compression.lz4/1.3.5/k4os.compression.lz4.1.3.5.nupkg.sha512",

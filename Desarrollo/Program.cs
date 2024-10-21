@@ -14,10 +14,10 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: MyAllowSpecificOrigins, policy =>
     {
-        policy.WithOrigins("http://localhost:3000")    // Permite cualquier origen. Si quieres restringirlo, usa .WithOrigins("https://example.com")
+        policy.AllowAnyOrigin()
               .AllowAnyMethod()    // Permite cualquier método HTTP: GET, POST, PUT, DELETE, etc.
               .AllowAnyHeader();
-              
+
     });
 });
 
@@ -38,6 +38,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors(MyAllowSpecificOrigins);
 
 app.UseHttpsRedirection();
 

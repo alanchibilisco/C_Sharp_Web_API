@@ -2454,11 +2454,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/alan/CursoC#/ApiRest/Desarrollo.Services/Desarrollo.Services.csproj",
+      "projectUniqueName": "/home/alan/GrupoMass/Cotizador-JOSHUA/TEST/backend-net-test/Desarrollo.Services/Desarrollo.Services.csproj",
       "projectName": "Desarrollo.Services",
-      "projectPath": "/home/alan/CursoC#/ApiRest/Desarrollo.Services/Desarrollo.Services.csproj",
+      "projectPath": "/home/alan/GrupoMass/Cotizador-JOSHUA/TEST/backend-net-test/Desarrollo.Services/Desarrollo.Services.csproj",
       "packagesPath": "/home/alan/.nuget/packages/",
-      "outputPath": "/home/alan/CursoC#/ApiRest/Desarrollo.Services/obj/",
+      "outputPath": "/home/alan/GrupoMass/Cotizador-JOSHUA/TEST/backend-net-test/Desarrollo.Services/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/alan/.nuget/NuGet/NuGet.Config"
@@ -2473,11 +2473,11 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "/home/alan/CursoC#/ApiRest/Desarrollo.Data/Desarrollo.Data.csproj": {
-              "projectPath": "/home/alan/CursoC#/ApiRest/Desarrollo.Data/Desarrollo.Data.csproj"
+            "/home/alan/GrupoMass/Cotizador-JOSHUA/TEST/backend-net-test/Desarrollo.Data/Desarrollo.Data.csproj": {
+              "projectPath": "/home/alan/GrupoMass/Cotizador-JOSHUA/TEST/backend-net-test/Desarrollo.Data/Desarrollo.Data.csproj"
             },
-            "/home/alan/CursoC#/ApiRest/Desarrollo.Modelos/Desarrollo.Modelos.csproj": {
-              "projectPath": "/home/alan/CursoC#/ApiRest/Desarrollo.Modelos/Desarrollo.Modelos.csproj"
+            "/home/alan/GrupoMass/Cotizador-JOSHUA/TEST/backend-net-test/Desarrollo.Modelos/Desarrollo.Modelos.csproj": {
+              "projectPath": "/home/alan/GrupoMass/Cotizador-JOSHUA/TEST/backend-net-test/Desarrollo.Modelos/Desarrollo.Modelos.csproj"
             }
           }
         }

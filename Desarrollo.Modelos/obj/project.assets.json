@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/alan/CursoC#/ApiRest/Desarrollo.Modelos/Desarrollo.Modelos.csproj",
+      "projectUniqueName": "/home/alan/GrupoMass/Cotizador-JOSHUA/TEST/backend-net-test/Desarrollo.Modelos/Desarrollo.Modelos.csproj",
       "projectName": "Desarrollo.Modelos",
-      "projectPath": "/home/alan/CursoC#/ApiRest/Desarrollo.Modelos/Desarrollo.Modelos.csproj",
+      "projectPath": "/home/alan/GrupoMass/Cotizador-JOSHUA/TEST/backend-net-test/Desarrollo.Modelos/Desarrollo.Modelos.csproj",
       "packagesPath": "/home/alan/.nuget/packages/",
-      "outputPath": "/home/alan/CursoC#/ApiRest/Desarrollo.Modelos/obj/",
+      "outputPath": "/home/alan/GrupoMass/Cotizador-JOSHUA/TEST/backend-net-test/Desarrollo.Modelos/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/alan/.nuget/NuGet/NuGet.Config"

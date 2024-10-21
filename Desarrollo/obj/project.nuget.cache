@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "uwIVbx4gIyg=",
+  "dgSpecHash": "9oZnO5PapOY=",
   "success": true,
-  "projectFilePath": "/home/alan/CursoC#/ApiRest/Desarrollo/Desarrollo.csproj",
+  "projectFilePath": "/home/alan/GrupoMass/Cotizador-JOSHUA/TEST/backend-net-test/Desarrollo/Desarrollo.csproj",
   "expectedPackageFiles": [
     "/home/alan/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
     "/home/alan/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/12.0.1/automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

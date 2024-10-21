@@ -1,6 +1,5 @@
 using System.Text.Json;
 using Google.Apis.Auth;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Desarrollo.Controllers
@@ -10,7 +9,7 @@ namespace Desarrollo.Controllers
     public class GoogleController : ControllerBase
     {
 
-        private readonly string googleClientId = "654705958554-6fpgbimh2b0o3sng96gn6eset8nkmjkr.apps.googleusercontent.com";
+        private readonly string googleClientId = "CLIENT_ID";
         private readonly ILogger<GoogleController> _logger;
 
 
