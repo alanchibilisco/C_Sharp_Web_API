@@ -82,6 +82,55 @@ namespace Desarrollo.Controllers
                 return BadRequest();
             }
         }
+
+        [HttpGet("app-token")]
+        public async Task<IActionResult> GetAuth()
+        {
+            try
+            {
+                string response = await GetAppToken();
+                System.Console.WriteLine($"RESPONSE-TOKEN--> {response}");
+                return Ok(new { Success = true });
+            }
+            catch (System.Exception e)
+            {
+                _logger.LogError(e.Message, e);
+                return BadRequest();
+            }
+        }
+
+        #region PrivateMethods
+        private async Task<string> GetAppToken()
+        {
+            try
+            {
+                /*string url = @"https://graph.facebook.com/oauth/access_token
+                ? client_id =1013386267230345
+                &client_secret =5e938468945fc83ab791e7e2c4be90c0
+                &grant_type = client_credentials";*/
+                string appId="1013386267230345";
+                string appSecret="5e938468945fc83ab791e7e2c4be90c0";
+                string urlToken=$"https://graph.facebook.com/oauth/access_token?client_id={appId}&client_secret={appSecret}&grant_type=client_credentials";
+
+                HttpResponseMessage response = await _httpClient.GetAsync(urlToken);
+                if (!response.IsSuccessStatusCode)
+                {
+                    _logger.LogInformation(JsonSerializer.Serialize(response));
+                    throw new Exception("Error al obtener el token de acceso");
+                }
+
+                // Leer la respuesta como JSON
+                string jsonResponse = await response.Content.ReadAsStringAsync();
+
+                return jsonResponse;
+            }
+            catch (System.Exception)
+            {
+
+                throw;
+            }
+        }
+        #endregion
     }
 
     public class FacebookTokenDto
