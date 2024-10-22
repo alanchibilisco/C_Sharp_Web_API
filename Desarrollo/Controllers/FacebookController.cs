@@ -10,7 +10,10 @@ namespace Desarrollo.Controllers
     {
         private readonly ILogger<FacebookController> _logger;
         private readonly HttpClient _httpClient;
-
+        //TODO agregar a los appsettings
+        private const string _APP_ID="1013386267230345";
+        //TODO agregar a los appsettings
+        private const string _APP_SECRET="5e938468945fc83ab791e7e2c4be90c0";
         public FacebookController(ILogger<FacebookController> logger, HttpClient httpClient)
         {
             _logger = logger;
@@ -25,7 +28,12 @@ namespace Desarrollo.Controllers
             {
                 return BadRequest("Access token is required.");
             }
-
+            //Valido el token recibido
+            bool validToken=await ValidateAppIdToken(facebookTokenDto.Token);
+            if (!validToken)
+            {
+                return Unauthorized();
+            }
             // URL para obtener información del usuario con el token de acceso
             var userInfoUrl = $"https://graph.facebook.com/v21.0/me?fields=name,email,first_name,last_name&access_token={facebookTokenDto.Token}";
 
@@ -83,8 +91,8 @@ namespace Desarrollo.Controllers
             }
         }
 
-        [HttpGet("app-token")]
-        public async Task<IActionResult> GetAuth()
+        [HttpPost("app-token")]
+        public async Task<IActionResult> GetAuth([FromBody] FacebookTokenDto facebookTokenDto)
         {
             try
             {
@@ -95,6 +103,8 @@ namespace Desarrollo.Controllers
                 }
 
                 System.Console.WriteLine($"RESPONSE-TOKEN--> {JsonSerializer.Serialize(response)}");
+
+                bool validToken=await ValidateAppIdToken(facebookTokenDto.Token);
 
                 return Ok(new { Success = true });
             }
@@ -109,12 +119,8 @@ namespace Desarrollo.Controllers
         private async Task<FacebookAccessTokenApp?> GetAppToken()
         {
             try
-            {   //TODO agregar a los appsettings            
-                string appId = "1013386267230345";
-                //TODO agregar a los appsettings
-                string appSecret = "5e938468945fc83ab791e7e2c4be90c0";
-
-                string urlToken = $"https://graph.facebook.com/oauth/access_token?client_id={appId}&client_secret={appSecret}&grant_type=client_credentials";
+            { 
+                string urlToken = $"https://graph.facebook.com/oauth/access_token?client_id={_APP_ID}&client_secret={_APP_SECRET}&grant_type=client_credentials";
 
                 HttpResponseMessage response = await _httpClient.GetAsync(urlToken);
                 if (!response.IsSuccessStatusCode)
@@ -139,6 +145,62 @@ namespace Desarrollo.Controllers
                 throw;
             }
         }
+
+        private async Task<bool> ValidateAppIdToken(string inputToken)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(inputToken))
+                {
+                    throw new ArgumentException("No se proporciono el access_token del cliente.");
+                }
+
+                FacebookAccessTokenApp? accessTokenApp=await GetAppToken();
+
+                if (accessTokenApp==null)
+                {
+                    throw new Exception("Error al obtener el token de acceso a la API de Facebook.");
+                }
+
+
+                string url=$"https://graph.facebook.com/debug_token?input_token={inputToken}&access_token={accessTokenApp.Access_token}";
+
+                HttpResponseMessage response=await _httpClient.GetAsync(url);
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    _logger.LogInformation(JsonSerializer.Serialize(response));
+                    throw new Exception("Error al validar el Token del cliente en API de Facebook.");
+                }
+
+                 // Leer la respuesta como JSON
+                string jsonResponse = await response.Content.ReadAsStringAsync();
+
+                FacebookTokenDebug? tokenDebug=JsonSerializer.Deserialize<FacebookTokenDebug>(jsonResponse,new JsonSerializerOptions
+                {
+                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+                });
+
+                if (tokenDebug==null)
+                {
+                    throw new Exception("No se obtuvo el FacebookTokenDebug");
+                }
+
+                if (tokenDebug.Data?.App_id==_APP_ID && tokenDebug.Data.Is_valid)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+                
+            }
+            catch (System.Exception)
+            {                
+                throw;
+            }
+        }
         #endregion
     }
 
@@ -159,5 +221,27 @@ namespace Desarrollo.Controllers
     {
         public string Access_token { get; set; } = string.Empty;
         public string Token_type { get; set; } = string.Empty;
+    }
+
+    public class FacebookTokenDebug
+    {
+        public FacebookTokenDebugData? Data { get; set; }
+        public IEnumerable<string> Scopes { get; set; }=new List<string>();
+        public string User_id { get; set; }=string.Empty;
+    }
+
+    public class FacebookTokenDebugData
+    {
+        public string App_id { get; set; }=string.Empty;
+        public string Type { get; set; }=string.Empty;
+        public string Application { get; set; }=string.Empty;
+        public bool Is_valid  { get; set; }
+        public string Issued_at { get; set; }=string.Empty;
+        public FacebookTokenDebugMetadata? Metadata { get; set; }
+    }
+
+    public class FacebookTokenDebugMetadata
+    {
+        public string Sso { get; set; }=string.Empty;
     }
 }
