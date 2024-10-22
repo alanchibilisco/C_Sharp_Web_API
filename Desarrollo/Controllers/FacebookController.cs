@@ -88,8 +88,14 @@ namespace Desarrollo.Controllers
         {
             try
             {
-                string response = await GetAppToken();
-                System.Console.WriteLine($"RESPONSE-TOKEN--> {response}");
+                FacebookAccessTokenApp? response = await GetAppToken();
+                if (response==null)
+                {
+                    throw new Exception("No se pudo obtener el token de acceso a la API de Facebook");
+                }
+
+                System.Console.WriteLine($"RESPONSE-TOKEN--> {JsonSerializer.Serialize(response)}");
+
                 return Ok(new { Success = true });
             }
             catch (System.Exception e)
@@ -100,29 +106,32 @@ namespace Desarrollo.Controllers
         }
 
         #region PrivateMethods
-        private async Task<string> GetAppToken()
+        private async Task<FacebookAccessTokenApp?> GetAppToken()
         {
             try
-            {
-                /*string url = @"https://graph.facebook.com/oauth/access_token
-                ? client_id =1013386267230345
-                &client_secret =5e938468945fc83ab791e7e2c4be90c0
-                &grant_type = client_credentials";*/
-                string appId="1013386267230345";
-                string appSecret="5e938468945fc83ab791e7e2c4be90c0";
-                string urlToken=$"https://graph.facebook.com/oauth/access_token?client_id={appId}&client_secret={appSecret}&grant_type=client_credentials";
+            {   //TODO agregar a los appsettings            
+                string appId = "1013386267230345";
+                //TODO agregar a los appsettings
+                string appSecret = "5e938468945fc83ab791e7e2c4be90c0";
+
+                string urlToken = $"https://graph.facebook.com/oauth/access_token?client_id={appId}&client_secret={appSecret}&grant_type=client_credentials";
 
                 HttpResponseMessage response = await _httpClient.GetAsync(urlToken);
                 if (!response.IsSuccessStatusCode)
                 {
                     _logger.LogInformation(JsonSerializer.Serialize(response));
-                    throw new Exception("Error al obtener el token de acceso");
+                    throw new Exception("Error al obtener el token de acceso a la API de Facebook.");
                 }
 
                 // Leer la respuesta como JSON
                 string jsonResponse = await response.Content.ReadAsStringAsync();
 
-                return jsonResponse;
+                FacebookAccessTokenApp? appToken=JsonSerializer.Deserialize<FacebookAccessTokenApp>(jsonResponse, new JsonSerializerOptions
+                {
+                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+                });
+
+                return appToken;
             }
             catch (System.Exception)
             {
@@ -144,5 +153,11 @@ namespace Desarrollo.Controllers
         public string Email { get; set; } = string.Empty;
         public string First_name { get; set; } = string.Empty;
         public string Last_name { get; set; } = string.Empty;
+    }
+
+    public class FacebookAccessTokenApp
+    {
+        public string Access_token { get; set; } = string.Empty;
+        public string Token_type { get; set; } = string.Empty;
     }
 }
