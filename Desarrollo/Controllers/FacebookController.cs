@@ -11,9 +11,11 @@ namespace Desarrollo.Controllers
         private readonly ILogger<FacebookController> _logger;
         private readonly HttpClient _httpClient;
         //TODO agregar a los appsettings
-        private const string _APP_ID="1013386267230345";
+        //private const string _APP_ID="1013386267230345";
+        private const string _APP_ID="1503642560341763";
         //TODO agregar a los appsettings
-        private const string _APP_SECRET="5e938468945fc83ab791e7e2c4be90c0";
+        //private const string _APP_SECRET="5e938468945fc83ab791e7e2c4be90c0";
+        private const string _APP_SECRET="8dda148b7d319a14e066ccb8f13d755a";
         public FacebookController(ILogger<FacebookController> logger, HttpClient httpClient)
         {
             _logger = logger;
