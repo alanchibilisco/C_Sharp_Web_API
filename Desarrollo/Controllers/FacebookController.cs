@@ -1,4 +1,5 @@
 using System.Text.Json;
+using Desarrollo.Utils;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,11 +12,12 @@ namespace Desarrollo.Controllers
         private readonly ILogger<FacebookController> _logger;
         private readonly HttpClient _httpClient;
         //TODO agregar a los appsettings
-        //private const string _APP_ID="1013386267230345";
-        private const string _APP_ID="1503642560341763";
+        private const string _APP_ID="1013386267230345";/*LoginJosue - Test*/
+        
+       //private const string _APP_ID="1753459512072455";/*TestLoginJosue*/
         //TODO agregar a los appsettings
-        //private const string _APP_SECRET="5e938468945fc83ab791e7e2c4be90c0";
-        private const string _APP_SECRET="8dda148b7d319a14e066ccb8f13d755a";
+        private const string _APP_SECRET="5e938468945fc83ab791e7e2c4be90c0";/*LoginJosue - Test*/
+        //private const string _APP_SECRET="21cf8dc0b64275e1af4fc4cdb91d5479";/*TestLoginJosue*/
         public FacebookController(ILogger<FacebookController> logger, HttpClient httpClient)
         {
             _logger = logger;
@@ -54,16 +56,29 @@ namespace Desarrollo.Controllers
                 var jsonResponse = await response.Content.ReadAsStringAsync();
 
                 // Deserializar la respuesta en un objeto
-                var userInfo = JsonSerializer.Deserialize<FacebookUser>(jsonResponse, new JsonSerializerOptions
+                FacebookUser? userInfo = JsonSerializer.Deserialize<FacebookUser>(jsonResponse, new JsonSerializerOptions
                 {
                     PropertyNamingPolicy = JsonNamingPolicy.CamelCase
                 });
+                if (userInfo==null)
+                {
+                    return Unauthorized();
+                }
                 string strPayload = JsonSerializer.Serialize(userInfo);
                 _logger.LogInformation(strPayload);
                 string appToken = "JOSUE-APP-TOKEN";
-
+                Usuario u= new Usuario
+                {
+                    IdProveedor=userInfo.Id,
+                    NombreCompleto=userInfo.Name,
+                    Nombre=userInfo.First_name,
+                    Apellido=userInfo.Last_name,
+                    CorreoElectronico=userInfo.Email,
+                    TipoRegistro=TipoUsuarioRegistro.FACEBOOK,
+                    TipoUsuario=TipoUsuario.USUARIO
+                };
                 // Devolver los datos del usuario
-                return Ok(new { Token = appToken });
+                return Ok(u);
             }
             catch (HttpRequestException e)
             {

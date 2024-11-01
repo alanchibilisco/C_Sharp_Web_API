@@ -1,4 +1,5 @@
 using System.Text.Json;
+using Desarrollo.Utils;
 using Google.Apis.Auth;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,7 +10,7 @@ namespace Desarrollo.Controllers
     public class GoogleController : ControllerBase
     {
 
-        private readonly string googleClientId = "CLIENT_ID";
+        private readonly string googleClientId = "654705958554-e05vliro90t1sfhoonnrem53hgojucgg.apps.googleusercontent.com";
         private readonly ILogger<GoogleController> _logger;
 
 
@@ -26,14 +27,37 @@ namespace Desarrollo.Controllers
             {
                 GoogleJsonWebSignature.Payload? payload = await VerifyGoogleToken(googleTokenDto.Token);
 
-                if (payload == null)
+                if (payload == null || !payload.EmailVerified)
                 {
-                    return BadRequest();
+                    return Unauthorized();
                 }
-                string strPayload = JsonSerializer.Serialize(payload);
-                _logger.LogInformation($"PAYLOAD--> {strPayload}");
+                // string strPayload = JsonSerializer.Serialize(payload);
+                // _logger.LogInformation($"PAYLOAD--> {strPayload}");
+
+                GoogleUser gu = new GoogleUser
+                {
+                    Id = payload.Subject,
+                    Name = payload.Name,
+                    GivenName = payload.GivenName,
+                    FamilyName = payload.FamilyName,
+                    Email = payload.Email
+                };
+
+                Usuario u=new Usuario
+                {
+                    IdProveedor=gu.Id,
+                    NombreCompleto=gu.Name,
+                    Nombre=gu.GivenName,
+                    Apellido=gu.FamilyName,
+                    CorreoElectronico=gu.Email,
+                    TipoRegistro=TipoUsuarioRegistro.GOOGLE,
+                    TipoUsuario=TipoUsuario.USUARIO,
+                };
+
+                _logger.LogInformation($"Usuario--> {JsonSerializer.Serialize(u)}");
+
                 string appToken = "JOSUE-APP-TOKEN";
-                return Ok(new { Token = appToken });
+                return Ok(u);
             }
             catch (System.Exception e)
             {
@@ -70,5 +94,63 @@ namespace Desarrollo.Controllers
     public class GoogleTokenDto
     {
         public string Token { get; set; } = string.Empty;
+    }
+
+    public class GoogleUser
+    {
+        public string Id { get; set; } = string.Empty;
+        public string Name { get; set; } = string.Empty;
+        public string GivenName { get; set; } = string.Empty;
+        public string FamilyName { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+    }
+
+    public class GoogleTokenData
+    {
+        public string? Scope { get; set; } = null;
+        public string? Prn { get; set; } = null;
+        public string? HostedDomain { get; set; } = null;
+        public string Email { get; set; } = string.Empty;
+        public bool EmailVerified { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string GivenName { get; set; } = string.Empty;
+        public string FamilyName { get; set; } = string.Empty;
+        public string Picture { get; set; } = string.Empty;
+        public object? Locale { get; set; } = null;
+        public string Issuer { get; set; } = string.Empty;
+        public string Subject { get; set; } = string.Empty;
+        public string Audience { get; set; } = string.Empty;
+        public object TargetAudience { get; set; } = string.Empty;
+        public int ExpirationTimeSeconds { get; set; }
+        public int NotBeforeTimeSeconds { get; set; }
+        public int IssuedAtTimeSeconds { get; set; }
+        public string JwtId { get; set; } = string.Empty;
+        public object? Nonce { get; set; } = null;
+        public object? Type { get; set; } = null;
+        public IEnumerable<string> AudienceAsList { get; set; } = new List<string>();
+    }
+    public class Root
+    {
+        public object Scope { get; set; }
+        public object Prn { get; set; }
+        public object HostedDomain { get; set; }
+        public string Email { get; set; }
+        public bool EmailVerified { get; set; }
+        public string Name { get; set; }
+        public string GivenName { get; set; }
+        public string FamilyName { get; set; }
+        public string Picture { get; set; }
+        public object Locale { get; set; }
+        public string Issuer { get; set; }
+        public string Subject { get; set; }
+        public string Audience { get; set; }
+        public object TargetAudience { get; set; }
+        public int ExpirationTimeSeconds { get; set; }
+        public int NotBeforeTimeSeconds { get; set; }
+        public int IssuedAtTimeSeconds { get; set; }
+        public string JwtId { get; set; }
+        public object Nonce { get; set; }
+        public object Type { get; set; }
+        public List<string> AudienceAsList { get; set; }
     }
 }
